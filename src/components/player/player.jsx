@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 function Player() {
   return (
@@ -379,9 +379,11 @@ function Player() {
                 </div>
               </div>
               <div className="track__author">
+                {/* eslint-disable-next-line */}
                 <a className="track__author-link" href="http://" />
               </div>
               <div className="track__album">
+                {/* eslint-disable-next-line */}
                 <a className="track__album-link" href="http://" />
               </div>
               <div className="track__time">
