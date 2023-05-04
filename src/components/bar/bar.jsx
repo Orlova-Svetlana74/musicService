@@ -1,5 +1,3 @@
-
-
 function Bar() {
   return (
     <div className="bar">

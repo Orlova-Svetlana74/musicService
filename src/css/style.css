@@ -27,12 +27,12 @@ ul li {
   list-style: none;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'StratosSkyeng';
   src: local("StratosSkyeng"), local("StratosSkyeng"), url("../fonts/StratosSkyeng.woff2") format("woff2"), url("../fonts/StratosSkyeng.woff") format("woff"), url("../fonts/StratosSkyeng.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-}
+} */
 
 html,
 body {
@@ -142,12 +142,18 @@ body {
           flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
+          justify-content: space-between;          
 }
+
 
 .nav__menu {
   display: block;
   visibility: visible;
+  transform: translateX(-130%);
+  transition: all 0.2s;  
+}
+.nav__menu.active {
+  transform: translateX(0);
 }
 
 .logo__image {
@@ -869,3 +875,36 @@ body {
 .volume__progress-line {
   width: 109px;
 }
+.dropdown_author {
+  position: absolute;
+width: 248px;
+height: 305px;
+left: 386px;
+top: 288px;
+border-radius: 12px;
+padding: 34px;
+background-color: rgb(49, 49, 49);
+}
+
+.dropdown_year {
+  position: absolute;
+width: 248px;
+height: 305px;
+left: 540px;
+top: 288px;
+border-radius: 12px;
+padding: 34px;
+background-color: rgb(49, 49, 49);
+}
+
+.dropdown_genre {
+  position: absolute;
+width: 248px;
+height: 305px;
+left: 694px;
+top: 288px;
+border-radius: 12px;
+padding: 34px;
+background-color: rgb(49, 49, 49);
+}
+
