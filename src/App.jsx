@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+// import { useState,} from 'react'
+// import { useState} from 'react'
+
 import 'react-loading-skeleton/dist/skeleton.css'
 import './css/style.css'
 import Filtr from './components/player/filtr'
@@ -13,22 +14,12 @@ import Sidebar from './components/sidebar/sidebar'
 import Sidebarperson from './components/sidebar/sidebarperson'
 import Footer from './components/footer/footer'
 
-function App() {
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 3000)
-    return () => clearTimeout(timer)
-  }, [])
+function App() { 
+  
   return (
     // <div className="App">
     // </div>
-    <div className="wrapper">
-      <SkeletonTheme color="#e1e1e1" highlightСolor="#f2f2f2">
-        {loading ? (
-          <Skeleton count={10} />
-        ) : (
+    <div className="wrapper">      
           <div className="container">
             <main className="main">
               <nav className="main__nav nav">
@@ -53,8 +44,18 @@ function App() {
                   <Poisk />
                   <div className="content__playlist playlist">
                     <Playlist />
+                    <Playlist />
+                    <Playlist />
+                    <Playlist />
+                    <Playlist />
+                    <Playlist />
+                    <Playlist />
+                    <Playlist />
+                    <Playlist />
+                    <Playlist />
+                    <Playlist />
 
-                    <div className="playlist__item">
+                    {/* <div className="playlist__item">
                       <div className="playlist__track track">
                         <div className="track__title">
                           <div className="track__title-image">
@@ -85,9 +86,9 @@ function App() {
                           <span className="track__time-text">2:22</span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="playlist__item">
+                    {/* <div className="playlist__item">
                       <div className="playlist__track track">
                         <div className="track__title">
                           <div className="track__title-image">
@@ -118,9 +119,9 @@ function App() {
                           <span className="track__time-text">2:22</span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="playlist__item">
+                    {/* <div className="playlist__item">
                       <div className="playlist__track track">
                         <div className="track__title">
                           <div className="track__title-image">
@@ -152,9 +153,9 @@ function App() {
                           <span className="track__time-text">4:12</span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="playlist__item">
+                    {/* <div className="playlist__item">
                       <div className="playlist__track track">
                         <div className="track__title">
                           <div className="track__title-image">
@@ -361,7 +362,7 @@ function App() {
                           <span className="track__time-text">3:36</span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
                     <div className="playlist__item">
                       <div className="playlist__track track">
@@ -404,9 +405,8 @@ function App() {
             </main>
             <Bar />
             <Footer />
-          </div>
-        )}
-      </SkeletonTheme>
+          </div>  
+      
     </div>
   )
 }

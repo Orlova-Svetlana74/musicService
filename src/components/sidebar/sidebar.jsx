@@ -1,34 +1,14 @@
+import Playlist01 from './playlist01'
+import Playlist02 from './playlist02'
+import Playlist03 from './playlist03'
+
 function Sidebar() {
   return (
     <div className="sidebar__block">
       <div className="sidebar__list">
-        <div className="sidebar__item">
-          <a className="sidebar__link" href="#">
-            <img
-              className="sidebar__img"
-              src="img/playlist01.png"
-              alt="day's playlist"
-            />
-          </a>
-        </div>
-        <div className="sidebar__item">
-          <a className="sidebar__link" href="#">
-            <img
-              className="sidebar__img"
-              src="img/playlist02.png"
-              alt="day's playlist"
-            />
-          </a>
-        </div>
-        <div className="sidebar__item">
-          <a className="sidebar__link" href="#">
-            <img
-              className="sidebar__img"
-              src="img/playlist03.png"
-              alt="day's playlist"
-            />
-          </a>
-        </div>
+        <Playlist01 />
+        <Playlist02 />
+        <Playlist03 />
       </div>
     </div>
   )

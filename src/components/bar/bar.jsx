@@ -1,3 +1,7 @@
+import Trackplayimage from './trackplayimage'
+import Trackplayauthor from './trackplayauthor'
+import Trackplayalbum from './trackplayalbum'
+
 function Bar() {
   return (
     <div className="bar">
@@ -35,21 +39,9 @@ function Bar() {
 
             <div className="player__track-play track-play">
               <div className="track-play__contain">
-                <div className="track-play__image">
-                  <svg className="track-play__svg" alt="music">
-                    <use xlinkHref="img/icon/sprite.svg#icon-note" />
-                  </svg>
-                </div>
-                <div className="track-play__author">
-                  <a className="track-play__author-link" href="http://">
-                    Ты та...
-                  </a>
-                </div>
-                <div className="track-play__album">
-                  <a className="track-play__album-link" href="http://">
-                    Баста
-                  </a>
-                </div>
+                <Trackplayimage />
+                <Trackplayauthor />
+                <Trackplayalbum />
               </div>
 
               <div className="track-play__like-dis">

@@ -17,7 +17,7 @@ function Filtr() {
           </div>
         ) : (
           ''
-        )}{' '}
+        )}
         исполнителю
       </button>
 
@@ -30,7 +30,7 @@ function Filtr() {
           <div className="dropdown_year"> 2005 год, 2010 год, 2020 год</div>
         ) : (
           ''
-        )}{' '}
+        )}
         году выпуска
       </button>
 
@@ -43,7 +43,7 @@ function Filtr() {
           <div className="dropdown_genre"> рок, поп, джаз</div>
         ) : (
           ''
-        )}{' '}
+        )}
         жанру
       </button>
     </div>

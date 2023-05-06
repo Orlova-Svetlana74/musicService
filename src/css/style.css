@@ -308,7 +308,13 @@ body {
   border: 1px solid #FFFFFF;
   border-radius: 60px;
   padding: 6px 20px;
+  color: #FFFFFF;
+  background: black;
 }
+/* .filter__button:active { */
+/* color:#AD61FF */
+/* } */
+
 
 .filter__button:not(:last-child) {
   margin-right: 10px;
