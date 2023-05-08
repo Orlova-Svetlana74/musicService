@@ -14,7 +14,7 @@ function Tracktext() {
     <div className="track__title-text">
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
-          <Skeleton count={1} />
+          <Skeleton width={200} count={1} />
         ) : (
           <a className="track__title-link" href="http://">
             Elektro <span className="track__title-span" />

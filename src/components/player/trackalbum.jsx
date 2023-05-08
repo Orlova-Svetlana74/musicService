@@ -14,12 +14,12 @@ function Trackalbum() {
     <div className="track__album">
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
-          <Skeleton count={1} />
+          <Skeleton width={70} count={1} />
         ) : (
-          <a className="track__album-link" href="http://">
-            Elektro
-          </a>
-        )}
+      <a className="track__album-link" href="http://">
+        Elektro
+      </a>
+      )}
       </SkeletonTheme>
     </div>
   )

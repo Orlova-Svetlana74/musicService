@@ -14,12 +14,12 @@ function Trackauthor() {
     <div className="track__author">
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
-          <Skeleton count={1} />
+          <Skeleton width={200} count={1} />
         ) : (
-          <a className="track__author-link" href="http://">
-            Dynoro, Outwork, Mr. Gee
-          </a>
-        )}
+      <a className="track__author-link" href="http://">
+        Dynoro, Outwork, Mr. Gee
+      </a>
+      )}
       </SkeletonTheme>
     </div>
   )
