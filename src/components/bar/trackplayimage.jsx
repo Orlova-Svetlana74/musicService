@@ -1,6 +1,7 @@
 // import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 // import { useState, useEffect } from 'react'
 // import 'react-loading-skeleton/dist/skeleton.css'
+import styles from './trackplayimage.module.css'
 
 function Trackplayimage() {
   // const [loading, setLoading] = useState(true)
@@ -11,15 +12,15 @@ function Trackplayimage() {
   //   return () => clearTimeout(timer)
   // }, [])
   return (
-    <div className="track-play__image">
+    <div className={styles.track_play_image}>
       {/* <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
           <Skeleton count={1} />
         ) : ( */}
-          <svg className="track-play__svg" alt="music">
-            <use xlinkHref="img/icon/sprite.svg#icon-note" />
-          </svg>
-        {/* )}
+      <svg className={styles.track_play_svg} alt="music">
+        <use xlinkHref="img/icon/sprite.svg#icon-note" />
+      </svg>
+      {/* )}
       </SkeletonTheme> */}
     </div>
   )

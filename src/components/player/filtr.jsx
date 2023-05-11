@@ -1,17 +1,21 @@
 import { useState } from 'react'
+// import styles from './filtr.module.css'
+import Filtrtitle from './filtrtitle'
+import styles from './filtr.module.css'
+
 
 function Filtr() {
   const [visibleFilter, setVisibleFilter] = useState(null)
   return (
-    <div className="centerblock__filter filter">
-      <div className="filter__title">Искать по:</div>
+  <div className={styles.centerblock__filter}>
+    <Filtrtitle />
       <button
         type="button"
-        className="filter__button button-author _btn-text"
+        className={`${styles.filter__button} ${visibleFilter === 'author' ? styles.active: ''}`}
         onClick={() => setVisibleFilter('author')}
       >
         {visibleFilter === 'author' ? (
-          <div className="dropdown_author">
+          <div className={styles.dropdown_author}>
             {' '}
             1 исполнитель,2 исполнитель,3 исполнитель
           </div>
@@ -23,11 +27,11 @@ function Filtr() {
 
       <button
         type="button"
-        className="filter__button button-year _btn-text"
+        className={`${styles.filter__button} ${visibleFilter === 'year' ? styles.active: ''}`}
         onClick={() => setVisibleFilter('year')}
       >
         {visibleFilter === 'year' ? (
-          <div className="dropdown_year"> 2005 год, 2010 год, 2020 год</div>
+          <div className={styles.dropdown_year}> 2005 год, 2010 год, 2020 год</div>
         ) : (
           ''
         )}
@@ -36,17 +40,17 @@ function Filtr() {
 
       <button
         type="button"
-        className="filter__button button-genre _btn-text"
+        className={`${styles.filter__button} ${visibleFilter === 'genre' ? styles.active: ''}`}
         onClick={() => setVisibleFilter('genre')}
       >
         {visibleFilter === 'genre' ? (
-          <div className="dropdown_genre"> рок, поп, джаз</div>
+          <div className={styles.dropdown_genre}> рок, поп, джаз</div>
         ) : (
           ''
         )}
         жанру
       </button>
-    </div>
-  )
+</div>
+)
 }
 export default Filtr

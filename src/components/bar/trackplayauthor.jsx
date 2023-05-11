@@ -1,6 +1,7 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
+import styles from './trackplayauthor.module.css'
 
 function Trackplayauthor() {
   const [loading, setLoading] = useState(true)
@@ -11,12 +12,12 @@ function Trackplayauthor() {
     return () => clearTimeout(timer)
   }, [])
   return (
-    <div className="track-play__author">
+    <div className={styles.track_play_author}>
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
           <Skeleton count={1} />
         ) : (
-          <a className="track-play__author-link" href="http://">
+          <a className={styles.track_play_author_link} href="http://">
             Ты та...
           </a>
         )}

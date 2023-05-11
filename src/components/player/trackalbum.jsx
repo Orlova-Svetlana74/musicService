@@ -1,6 +1,7 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
+import styles from './trackalbum.module.css'
 
 function Trackalbum() {
   const [loading, setLoading] = useState(true)
@@ -11,12 +12,12 @@ function Trackalbum() {
     return () => clearTimeout(timer)
   }, [])
   return (
-    <div className="track__album">
+    <div className={styles.track__album}>
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
           <Skeleton width={70} count={1} />
         ) : (
-      <a className="track__album-link" href="http://">
+      <a className={styles.track__album_link} href="http://">
         Elektro
       </a>
       )}

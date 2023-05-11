@@ -1,6 +1,7 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
+import styles from './tracktime.module.css'
 
 function Tracktime() {
   const [loading, setLoading] = useState(true)
@@ -11,12 +12,12 @@ function Tracktime() {
     return () => clearTimeout(timer)
   }, [])
   return (
-    <div className="track__time">
+    <div className={styles.track__time}>
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
           <Skeleton width={50} count={1} />
         ) : (
-          <span className="track__time-text">2:22</span>
+          <span className={styles.track__time_text}>2:22</span>
         )}
       </SkeletonTheme>
     </div>

@@ -1,8 +1,11 @@
+import styles from './trackimage.module.css'
+
 function Trackimage() {
   return (
-    <div className="track__title-image">
-      <svg className="track__title-svg" alt="music">
-        <use xlinkHref="img/icon/sprite.svg#icon-note" />
+    <div className={styles.track__title_image}>
+      <svg className={styles.track__title_svg} alt="music">
+        {/* <use xlinkHref="img/icon/sprite#icon-note" /> */}
+        <use xlinkHref="img/icon/sprite#icon-note" />
       </svg>
     </div>
   )

@@ -1,73 +1,74 @@
 import Trackplayimage from './trackplayimage'
 import Trackplayauthor from './trackplayauthor'
 import Trackplayalbum from './trackplayalbum'
+import styles from './bar.module.css'
 
 function Bar() {
   return (
-    <div className="bar">
-      <div className="bar__content">
-        <div className="bar__player-progress" />
-        <div className="bar__player-block">
-          <div className="bar__player player">
-            <div className="player__controls">
-              <div className="player__btn-prev">
-                <svg className="player__btn-prev-svg" alt="prev">
+    <div className={styles.bar}>
+      <div className={styles.bar_content}>
+        <div className={styles.bar_player_progress} />
+        <div className={styles.bar_player_block}>
+          <div className={styles.bar_player}>
+            <div className={styles.player_controls}>
+              <div className={styles.player_btn_prev}>
+                <svg className={styles.player_btn_prev_svg} alt="prev">
                   <use xlinkHref="img/icon/sprite.svg#icon-prev" />
                 </svg>
               </div>
-              <div className="player__btn-play _btn">
-                <svg className="player__btn-play-svg" alt="play">
+              <div className={styles.player_btn_play}>
+                <svg className={styles.player_btn_play_svg} alt="play">
                   <use xlinkHref="img/icon/sprite.svg#icon-play" />
                 </svg>
               </div>
-              <div className="player__btn-next">
-                <svg className="player__btn-next-svg" alt="next">
+              <div className={styles.player_btn_next}>
+                <svg className={styles.player_btn_next_svg} alt="next">
                   <use xlinkHref="img/icon/sprite.svg#icon-next" />
                 </svg>
               </div>
-              <div className="player__btn-repeat _btn-icon">
-                <svg className="player__btn-repeat-svg" alt="repeat">
+              <div className={styles.player_btn_repeat}>
+                <svg className={styles.player_btn_repeat_svg} alt="repeat">
                   <use xlinkHref="img/icon/sprite.svg#icon-repeat" />
                 </svg>
               </div>
-              <div className="player__btn-shuffle _btn-icon">
-                <svg className="player__btn-shuffle-svg" alt="shuffle">
+              <div className={styles.player_btn_shuffle}>
+                <svg className={styles.player_btn_shuffle_svg} alt="shuffle">
                   <use xlinkHref="img/icon/sprite.svg#icon-shuffle" />
                 </svg>
               </div>
             </div>
 
-            <div className="player__track-play track-play">
-              <div className="track-play__contain">
+            <div className={styles.player_track_play}>
+              <div className={styles.track_play_contain}>
                 <Trackplayimage />
                 <Trackplayauthor />
                 <Trackplayalbum />
               </div>
 
-              <div className="track-play__like-dis">
-                <div className="track-play__like _btn-icon">
-                  <svg className="track-play__like-svg" alt="like">
+              <div className={styles.track_play_like_dis}>
+                <div className={styles.track_play_like}>
+                  <svg className={styles.track_play_like_svg} alt="like">
                     <use xlinkHref="img/icon/sprite.svg#icon-like" />
                   </svg>
                 </div>
-                <div className="track-play__dislike _btn-icon">
-                  <svg className="track-play__dislike-svg" alt="dislike">
+                <div className={styles.track_play_dislike}>
+                  <svg className={styles.track_play_dislike_svg} alt="dislike">
                     <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
                   </svg>
                 </div>
               </div>
             </div>
           </div>
-          <div className="bar__volume-block volume">
-            <div className="volume__content">
-              <div className="volume__image">
-                <svg className="volume__svg" alt="volume">
+          <div className={styles.bar_volume_block}>
+            <div className={styles.volume_content}>
+              <div className={styles.volume_image}>
+                <svg className={styles.volume_svg} alt="volume">
                   <use xlinkHref="img/icon/sprite.svg#icon-volume" />
                 </svg>
               </div>
-              <div className="volume__progress _btn">
+              <div className={styles.volume_progress}>
                 <input
-                  className="volume__progress-line _btn"
+                  className={styles.volume_progress_line}
                   type="range"
                   name="range"
                 />

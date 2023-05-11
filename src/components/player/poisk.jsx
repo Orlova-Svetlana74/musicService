@@ -1,11 +1,13 @@
+import styles from './poisk.module.css'
+
 function Poisk() {
   return (
-    <div className="content__title playlist-title">
-      <div className="playlist-title__col col01">Трек</div>
-      <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-      <div className="playlist-title__col col03">АЛЬБОМ</div>
-      <div className="playlist-title__col col04">
-        <svg className="playlist-title__svg" alt="time">
+    <div className={styles.content__title}>
+      <div className={styles.playlist_title__col01}>Трек</div>
+      <div className={styles.playlist_title__col02}>ИСПОЛНИТЕЛЬ</div>
+      <div className={styles.playlist_title__col03}>АЛЬБОМ</div>
+      <div className={styles.playlist_title__col04}>
+        <svg className={styles.playlist_title__svg} alt="time">
           <use xlinkHref="img/icon/sprite.svg#icon-watch" />
         </svg>
       </div>

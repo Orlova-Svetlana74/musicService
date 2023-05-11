@@ -1,0 +1,15 @@
+.track_play_author {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: author;
+    min-width: 49px;
+  }
+
+  .track_play_author_link {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    white-space: nowrap;
+  }
