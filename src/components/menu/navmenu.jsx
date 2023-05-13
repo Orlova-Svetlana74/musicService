@@ -4,9 +4,9 @@ import Burger from './burger'
 import styles from './navmenu.module.css'
 
 const items = [
-  { value: 'Главное', href: '' },
-  { value: 'Мой плейлист', href: '' },
-  { value: 'Войти', href: '' },
+  { value: 'Главное', href: '', id: '1' },
+  { value: 'Мой плейлист', href: '', id: '2' },
+  { value: 'Войти', href: '', id: '3' },
 ]
 function Navmenu() {
   const [menuActive, setMenuActive] = useState(false)
@@ -19,8 +19,8 @@ function Navmenu() {
       >
         <ul className={styles.menu__list}>
           {items.map((item) => (
-            <li className={styles.menu__item}>
-              <a href className={styles.menu__link}>
+            <li className={styles.menu__item} key={item.id}>
+              <a href = 'true' className={styles.menu__link}>
                 {item.href} {item.value}
               </a>
             </li>
