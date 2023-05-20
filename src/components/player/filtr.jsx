@@ -1,8 +1,7 @@
+import React from 'react'
 import { useState } from 'react'
-// import styles from './filtr.module.css'
 import Filtrtitle from './filtrtitle'
 import styles from './filtr.module.css'
-
 
 function Filtr() {
   const [visibleFilter, setVisibleFilter] = useState(null)

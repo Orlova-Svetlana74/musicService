@@ -1,3 +1,4 @@
+import React from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -17,10 +18,10 @@ function Trackalbum() {
         {loading ? (
           <Skeleton width={70} count={1} />
         ) : (
-      <a className={styles.track__album_link} href="http://">
-        Elektro
-      </a>
-      )}
+          <a className={styles.track__album_link} href="http://">
+            Elektro
+          </a>
+        )}
       </SkeletonTheme>
     </div>
   )

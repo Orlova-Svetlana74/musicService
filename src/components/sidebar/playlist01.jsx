@@ -1,3 +1,4 @@
+import React from 'react'
 import PlayImg01 from './playlist01.png'
 import styles from './playlist01.module.css'
 

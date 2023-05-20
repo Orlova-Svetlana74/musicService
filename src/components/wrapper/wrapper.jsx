@@ -1,3 +1,4 @@
+import React from 'react'
 import Filtr from '../player/filtr'
 import Track from '../player/track'
 import Poisk from '../player/poisk'
@@ -10,14 +11,14 @@ import Sidebarperson from '../sidebar/sidebarperson'
 import Footer from '../footer/footer'
 import styles from './wrapper.module.css'
 
-function Wrapper() {
+function Wrapper({ user, setUser }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <main className={styles.main}>
           <nav className={styles.main__nav}>
             <Logo />
-            <Navmenu />
+            <Navmenu user={user} setUser={setUser} />
           </nav>
           <div className={styles.main__centerblock}>
             <div className={styles.centerblock__search}>
