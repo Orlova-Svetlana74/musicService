@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import './css/style.css'
 import Wrapper from './components/wrapper/wrapper'
 import AppRoutes from './pages/routers'

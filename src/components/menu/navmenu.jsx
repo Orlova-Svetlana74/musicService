@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react'
+// import React from 'react'
 import { useState } from 'react'
 import Burger from './burger'
 import styles from './navmenu.module.css'

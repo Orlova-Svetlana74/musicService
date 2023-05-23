@@ -1,7 +1,7 @@
 // import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 // import { useState, useEffect } from 'react'
 // import 'react-loading-skeleton/dist/skeleton.css'
-import React from 'react'
+// import React from 'react'
 import PlayImg02 from './playlist01.png'
 import styles from './playlist02.module.css'
 

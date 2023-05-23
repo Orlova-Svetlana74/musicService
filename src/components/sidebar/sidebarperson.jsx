@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import styles from './sidebarperson.module.css'
 
 function Sidebarperson() {

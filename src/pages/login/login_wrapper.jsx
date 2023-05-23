@@ -1,29 +1,30 @@
-import styles from './login_wrapper.module.css'
-import React from 'react'
+// import React from 'react'
+
+// import { useState } from 'react'
+// import { useNavigate } from 'react-router-dom'
 import Login from './login'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import styles from './login_wrapper.module.css'
 
-function Loginwrapper({ setUser }) {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const navigate = useNavigate()
+function Loginwrapper() {
+  // const [username, setUsername] = useState('')
+  // const [password, setPassword] = useState('')
+  // const navigate = useNavigate()
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value)
-  }
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value)
-  }
-  const handleLogin = (event) => {
-    event.preventDefault()
-    setUser({ login: username })
-    navigate('/')
-  }
+  // const handleUsernameChange = (event) => {
+  //   setUsername(event.target.value)
+  // }
+  // const handlePasswordChange = (event) => {
+  //   setPassword(event.target.value)
+  // }
+  // const handleLogin = (event) => {
+  //   event.preventDefault()
+  //   setUser({ login: username })
+  //   navigate('/')
+  // }
   return (
-    <div className="wrapper">
-      <div className="container-enter">
-        <div className="modal__block" />
+    <div className={styles.wrapper}>
+      <div className={styles.container_enter}>
+        <div className={styles.modal__block} />
         <Login />
       </div>
     </div>

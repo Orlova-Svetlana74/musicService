@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import LogoImg from './logo.png'
 
 function Logo() {

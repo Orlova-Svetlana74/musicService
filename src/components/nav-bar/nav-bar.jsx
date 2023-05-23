@@ -1,17 +1,17 @@
-import React from 'react'
-import { NavLink } from "react-router-dom";
-import cn from "classnames";
+// import React from 'react'
+import { NavLink } from 'react-router-dom'
+import cn from 'classnames'
 // import './index.css'
 
 function NavBar({ user, onAuthButtonClick }) {
-  const activeClassName = "underline";
+  const activeClassName = 'underline'
   return (
     <div className="NavBar__wrapper">
       <nav>
         <ul className="NavBar__list">
-          {/* <li>
+          <li>
             <NavLink
-              to="/"
+              to="/components/pages/login/login_wrapper"
               className={({ isActive }) =>
                 cn("App-link", {
                   [activeClassName]: isActive,
@@ -20,9 +20,9 @@ function NavBar({ user, onAuthButtonClick }) {
             >
               Home
             </NavLink>
-          </li> */}
-          {/* <li> */}
-            {/* <NavLink
+          </li>
+          {/* <li>
+          <NavLink
               to="/about"
               className={({ isActive }) =>
                 cn("App-link", {
@@ -31,24 +31,23 @@ function NavBar({ user, onAuthButtonClick }) {
               }
             >
               About
-            </NavLink> */}
-          {/* </li> */}
+            </NavLink>
+           </li> */}
 
-          <li>
+          {/* <li>
             <NavLink
               to="/account"
               className={({ isActive }) =>
-                cn("App-link", {
+                cn('App-link', {
                   [activeClassName]: isActive,
                 })
               }
             >
               Account
             </NavLink>
-          </li>
-
-          <li>
-            {/* <NavLink
+          </li> */}
+          {/* <li>
+            <NavLink
               to="/wallet"
               className={({ isActive }) =>
                 cn("App-link", {
@@ -57,16 +56,15 @@ function NavBar({ user, onAuthButtonClick }) {
               }
             >
               Wallet
-            </NavLink> */}
-          </li>
+            </NavLink>
+          </li> */}
         </ul>
       </nav>
 
-      <button onClick={onAuthButtonClick}>
-        {user ? "Sign out" : "Sign in"}
+      <button type="button" onClick={onAuthButtonClick}>
+        {user ? 'Sign out' : 'Sign in'}
       </button>
     </div>
-  );
-};
-
+  )
+}
 export default NavBar

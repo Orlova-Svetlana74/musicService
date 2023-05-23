@@ -29,6 +29,7 @@
     "jsx-a11y/anchor-has-content": "warn",
     "jsx-a11y/anchor-is-valid": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "import/no-named-as-default": 0
+    "import/no-named-as-default": 0,
+    "import/prefer-default-export": "off"
   }
 }

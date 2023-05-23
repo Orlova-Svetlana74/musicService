@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import styles from './treki.module.css'
 
 function Treki() {
