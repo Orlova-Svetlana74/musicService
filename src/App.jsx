@@ -5,14 +5,9 @@ import AppRoutes from './pages/routers'
 // import NavBar from './components/nav-bar/nav-bar'
 
 function App() {
-  const [user] = useState (null);
-  // const handleLogin = () => setUser({ login: "taradam" });
-
-  // const handleLogout = () => setUser(null);
+  const [user] = useState (null);  
   return (
-    <div className="App">
-      {/* <NavBar user={user} 
-      onAuthButtonClick={user ? handleLogout : handleLogin} /> */}
+    <div className="App">      
       <AppRoutes user ={user} />
       <Wrapper />
     </div>

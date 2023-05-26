@@ -26,10 +26,10 @@ function Login() {
         placeholder="Пароль"
       />
       <button className={styles.modal__btn_enter} type="button" id="btnEnter">
-        <NavLink to ="/">Логин</NavLink>
+        <NavLink to ="/">Войти</NavLink>
       </button>
       <button className={styles.modal__btn_signup} type="button" id="btnSignUp">
-      <NavLink to ="/login">Зарегистрироваться</NavLink>
+      <NavLink to ="./registration">Зарегистрироваться</NavLink>
       </button>
     </form>
   )

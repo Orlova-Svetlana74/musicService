@@ -1,6 +1,6 @@
 // import React from 'react'
 import { useState } from 'react'
-import  NavBar  from '../components/nav-bar/nav-bar'
+import NavBar from '../../components/navbar/navbar'
 // import { NavLink } from 'react-router-dom'
 import styles from './registration.module.css'
 import LogoImg from './logo.png'

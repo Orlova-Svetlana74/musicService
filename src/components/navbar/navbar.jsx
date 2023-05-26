@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import cn from 'classnames'
 // import './index.css'
 
-function NavBar({ user, onAuthButtonClick }) {
+function NavBar() {
   const activeClassName = 'underline'
   return (
     <div className="NavBar__wrapper">
@@ -60,10 +60,9 @@ function NavBar({ user, onAuthButtonClick }) {
           </li> */}
         </ul>
       </nav>
-
-      <button type="button" onClick={onAuthButtonClick}>
+      {/* <button type="button" onClick={onAuthButtonClick}>
         {user ? '&&&&' : '77777'}
-      </button>
+      </button> */}
     </div>
   )
 }

@@ -57,7 +57,6 @@
             align-items: center;
     padding: 43px 44px 47px 40px;
   }
-
   .modal__form-login input:first-child {
     margin-bottom: 30px;
   }
@@ -77,7 +76,6 @@
     margin-right: 3px;
     margin-bottom: 30px;
   }
-
   .modal__input::-webkit-input-placeholder {
     font-style: normal;
     font-weight: 400;
@@ -85,8 +83,7 @@
     line-height: 24px;
     letter-spacing: -0.05px;
     color: #D0CECE;
-  }
-  
+  }  
   .modal__input:-ms-input-placeholder {
     font-style: normal;
     font-weight: 400;
@@ -94,8 +91,7 @@
     line-height: 24px;
     letter-spacing: -0.05px;
     color: #D0CECE;
-  }
-  
+  }  
   .modal__input::-ms-input-placeholder {
     font-style: normal;
     font-weight: 400;
@@ -103,8 +99,7 @@
     line-height: 24px;
     letter-spacing: -0.05px;
     color: #D0CECE;
-  }
-  
+  }  
   .modal__input::placeholder {
     font-style: normal;
     font-weight: 400;
@@ -113,7 +108,7 @@
     letter-spacing: -0.05px;
     color: #D0CECE;
   }
-  .modal__btn-signup-ent {
+  .modal__btn_signup_ent {
     width: 278px;
     height: 62px;
     background-color: #580EA2;
