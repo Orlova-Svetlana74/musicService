@@ -1,6 +1,7 @@
 // import styles from './trackplayalbum.module.css'
 // import React from 'react'
 
+import { NavLink } from 'react-router-dom'
 import styles from './login.module.css'
 import LogoImg from './logo.png'
 
@@ -25,10 +26,10 @@ function Login() {
         placeholder="Пароль"
       />
       <button className={styles.modal__btn_enter} type="button" id="btnEnter">
-        <a href="../index.html">Войти</a>
+        <NavLink to ="/">Логин</NavLink>
       </button>
       <button className={styles.modal__btn_signup} type="button" id="btnSignUp">
-        <a href="signup.html">Зарегистрироваться</a>
+      <NavLink to ="/login">Зарегистрироваться</NavLink>
       </button>
     </form>
   )

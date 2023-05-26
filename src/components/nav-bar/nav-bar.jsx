@@ -9,18 +9,18 @@ function NavBar({ user, onAuthButtonClick }) {
     <div className="NavBar__wrapper">
       <nav>
         <ul className="NavBar__list">
-          <li>
+          <button type="button">
             <NavLink
-              to="/components/pages/login/login_wrapper"
+              to="/registration"
               className={({ isActive }) =>
-                cn("App-link", {
+                cn('App-link', {
                   [activeClassName]: isActive,
                 })
               }
             >
-              Home
+              Зарегистрироваться
             </NavLink>
-          </li>
+          </button>
           {/* <li>
           <NavLink
               to="/about"
@@ -62,7 +62,7 @@ function NavBar({ user, onAuthButtonClick }) {
       </nav>
 
       <button type="button" onClick={onAuthButtonClick}>
-        {user ? 'Sign out' : 'Sign in'}
+        {user ? '&&&&' : '77777'}
       </button>
     </div>
   )

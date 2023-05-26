@@ -1,13 +1,19 @@
-// import styles from './trackplayalbum.module.css'
 // import React from 'react'
+import { useState } from 'react'
+import  NavBar  from '../components/nav-bar/nav-bar'
+// import { NavLink } from 'react-router-dom'
 import styles from './registration.module.css'
 import LogoImg from './logo.png'
 
 function Registration() {
+  const [user, setUser] = useState(null)
+  const handleLogin = () => setUser({ login: 'taradam' })
+
+  const handleLogout = () => setUser(null)
   return (
     <form className={styles.modal__form_login} id="formLogIn" action="#">
       <div className={styles.modal__logo}>
-      <img src={LogoImg} alt="logo" />
+        <img src={LogoImg} alt="logo" />
       </div>
       <input
         className={styles.modal__input}
@@ -30,8 +36,15 @@ function Registration() {
         id="passwordSecond"
         placeholder="Повторите пароль"
       />
-      <button className={styles.modal__btn_signup_ent} type="button" id="SignUpEnter">
-        <a href="../index.html">Зарегистрироваться</a>
+      <button
+        className={styles.modal__btn_signup_ent}
+        type="button"
+        id="SignUpEnter"
+      >
+        <NavBar
+          user={user}
+          onAuthButtonClick={user ? handleLogout : handleLogin}
+        />
       </button>
     </form>
   )

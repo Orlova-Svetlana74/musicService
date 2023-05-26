@@ -2,7 +2,7 @@
 // import { useState, useEffect } from 'react'
 // import 'react-loading-skeleton/dist/skeleton.css'
 // import React from 'react'
-import PlayImg02 from './playlist01.png'
+import PlayImg02 from './playlist02.png'
 import styles from './playlist02.module.css'
 
 function Playlist02() {

@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-export function ProtectedRoute({ redirectPath = '/components/pages/login/login_wrapper', isAllowed }) {
+export function ProtectedRoute({ redirectPath = '/login', isAllowed }) {
   if (!isAllowed) {
     return <Navigate to={redirectPath} replace />
   }
