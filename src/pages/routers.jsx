@@ -6,15 +6,17 @@ import Playlist01 from '../components/sidebar/playlist01'
 // import { NotFound } from "./pages/not-found";
 import { ProtectedRoute } from '../components/protected-routs/protected-routs'
 import Wrapper from '../components/wrapper/wrapper'
+import ProfileTrack from './track/profiletrack'
 
 export function AppRoutes({ user, setUser }) {
   return (
     <Routes>
       <Route path="/" element={<Loginwrapper setUser={setUser} />} />
       <Route path="/registration" element={<Registrwrapper />} />
+      <Route path="/track/:id" element={<ProfileTrack />} />
       <Route path="/sidebar/" element={<Playlist01 />} />
 
-      <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>        
+      <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
         <Route path="/app" element={<Wrapper />} />
       </Route>
     </Routes>
