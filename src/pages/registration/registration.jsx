@@ -1,15 +1,15 @@
 // import React from 'react'
-import { useState } from 'react'
-import NavBar from '../../components/navbar/navbar'
+// import { useState } from 'react'
+// import NavBar from '../../components/navbar/navbar'
 // import { NavLink } from 'react-router-dom'
 import styles from './registration.module.css'
 import LogoImg from './logo.png'
 
 function Registration() {
-  const [user, setUser] = useState(null)
-  const handleLogin = () => setUser({ login: 'taradam' })
+  // const [user, setUser] = useState(null)
+  // const handleLogin = () => setUser({ login: 'taradam' })
 
-  const handleLogout = () => setUser(null)
+  // const handleLogout = () => setUser(null)
   return (
     <form className={styles.modal__form_login} id="formLogIn" action="#">
       <div className={styles.modal__logo}>
@@ -41,10 +41,11 @@ function Registration() {
         type="button"
         id="SignUpEnter"
       >
-        <NavBar
+        {/* <NavBar
           user={user}
           onAuthButtonClick={user ? handleLogout : handleLogin}
-        />
+        /> */}
+        Зарегистрироваться
       </button>
     </form>
   )
