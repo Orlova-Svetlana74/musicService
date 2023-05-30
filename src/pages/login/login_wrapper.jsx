@@ -5,7 +5,7 @@
 import Login from './login'
 import styles from './login_wrapper.module.css'
 
-function Loginwrapper() {
+function Loginwrapper({setToken}) {
   // const [username, setUsername] = useState('')
   // const [password, setPassword] = useState('')
   // const navigate = useNavigate()
@@ -25,7 +25,7 @@ function Loginwrapper() {
     <div className={styles.wrapper}>
       <div className={styles.container_enter}>
         <div className={styles.modal__block} />
-        <Login />
+        <Login setToken={setToken} />
       </div>
     </div>
   )

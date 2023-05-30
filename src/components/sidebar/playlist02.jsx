@@ -8,7 +8,7 @@ import styles from './playlist02.module.css'
 function Playlist02() {
   return (
     <div className={styles.sidebar__item}>
-      <a className={styles.sidebar__link} href="#">
+      <a className={styles.sidebar__link} href="/usertrack/">
         <img
           className={styles.sidebar__img}
           src={PlayImg02}

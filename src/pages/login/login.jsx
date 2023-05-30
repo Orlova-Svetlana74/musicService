@@ -6,7 +6,7 @@ import styles from './login.module.css'
 import LogoImg from './logo.png'
 
 function Login({setToken}) {
-
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,7 +15,7 @@ function Login({setToken}) {
    const handleUsernameChange = (event) => {
     setUsername (event.target.value);
    };
-const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event) => {
   setPassword (event.target.value);
    };
 
