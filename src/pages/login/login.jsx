@@ -1,16 +1,23 @@
 // import styles from './trackplayalbum.module.css'
 // import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './login.module.css'
 import LogoImg from './logo.png'
 
-function Login({setToken}) {
+function Login({setToken}) { 
   
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate ();
+
+  useEffect(() => {
+    if (username.login) {
+      // console.log (username, password)
+      navigate('/')      
+    }
+  }, [])
 
    const handleUsernameChange = (event) => {
     setUsername (event.target.value);
@@ -28,13 +35,14 @@ function Login({setToken}) {
     navigate('/registration') 
   } 
 
-  function handleLogin () {
-    const token = "any_token_value";
-    document.cookie =`token=${token}`;
+  function handleLogin() {
+    const token = 'any_token_value'
+    document.cookie = `token=${token}`
     setToken(token)
     navigate('/');
   }
-  // const handleLogout = () => setUser(null) 
+
+  // const handleLogout = () => setUser(null)
   return (
     <form className={styles.modal__form_login} id="formLogIn action=">
       <div className={styles.modal__logo}>
@@ -45,7 +53,7 @@ function Login({setToken}) {
         type="text"
         name="login"
         id="username"
-        placeholder="Логин"
+        placeholder="Логин" 
         value={username}
         onChange={handleUsernameChange}
       />
@@ -58,11 +66,25 @@ function Login({setToken}) {
         value={password}
         onChange={handlePasswordChange}
       />
-      <button className={styles.modal__btn_enter} type="button" id="btnEnter"
-        onClick ={handleLogin}>Войти</button>
-      <button className={styles.modal__btn_signup} type="button" id="btnSignUp"
-      onClick ={handleRegister}>Зарегистрироваться</button>
+      <button onClick={handleLogin}
+        className={styles.modal__btn_enter}
+        type="button"
+        id="btnEnter"
+        
+      >
+        Войти
+      </button>
+      <button onClick={handleRegister}
+        className={styles.modal__btn_signup}
+        type="button"
+        id="btnSignUp"
+        
+      >
+        Зарегистрироваться
+      </button>
     </form>
   )
+  
 }
+
 export default Login

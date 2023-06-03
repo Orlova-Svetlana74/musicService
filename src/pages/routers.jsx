@@ -10,9 +10,11 @@ import Wrapper from '../components/wrapper/wrapper'
 import ProfileTrack from './track/profiletrack'
 import Playlist02 from '../components/sidebar/playlist02'
 import Playlist03 from '../components/sidebar/playlist03'
+// import Login from './login/login'
 
 export function AppRoutes() {
   const [token, setToken] = useState()
+  
   return (
     <Routes>      
       <Route path="/" element={<Login setToken={setToken} />} />
@@ -21,7 +23,6 @@ export function AppRoutes() {
       <Route path="/playlist01/" element={<Playlist01 />} />
       <Route path="/playlist02/" element={<Playlist02 />} />
       <Route path="/playlist03/" element={<Playlist03 />} />
-
       <Route element={<ProtectedRoute isAllowed={Boolean(token)} />}>
         <Route path="/app" element={<Wrapper />} />
       </Route>
