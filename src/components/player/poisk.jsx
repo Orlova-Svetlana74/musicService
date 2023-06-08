@@ -1,5 +1,6 @@
 // import React from 'react'
 import styles from './poisk.module.css'
+import sprite from '../../img/icon/sprite.svg'
 
 function Poisk() {
   return (
@@ -9,7 +10,7 @@ function Poisk() {
       <div className={styles.playlist_title__col03}>АЛЬБОМ</div>
       <div className={styles.playlist_title__col04}>
         <svg className={styles.playlist_title__svg} alt="time">
-          <use xlinkHref="img/icon/sprite.svg#icon-watch" />
+          <use xlinkHref={`${sprite}#icon-watch`}></use>        
         </svg>
       </div>
     </div>

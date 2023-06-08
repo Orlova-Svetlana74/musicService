@@ -7,11 +7,11 @@ function ProfileTrack() {
   const fullName = `${user.firstName} ${user.lastName}`
 
   return (
-    <section>
+    <section >
       <img src={user.avatar} alt={fullName} />
       <h1>{fullName}</h1>
-      <p>email: {user.email}</p>
-      <p>gender: {user.gender}</p>
+      <p>author: {user.author}</p>
+      <p>album: {user.album}</p>
     </section>
   )
 }

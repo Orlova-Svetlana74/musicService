@@ -4,7 +4,7 @@ import Track from '../player/track'
 import Poisk from '../player/poisk'
 import Treki from '../player/treki'
 import Bar from '../bar/bar'
-// import Logo from '../menu/logo'
+import Logo from '../menu/logo'
 import Navmenu from '../menu/navmenu'
 import Sidebar from '../sidebar/sidebar'
 import Sidebarperson from '../sidebar/sidebarperson'
@@ -17,7 +17,7 @@ function Wrapper({ user, setUser }) {
       <div className={styles.container}>
         <main className={styles.main}>
           <nav className={styles.main__nav}>
-            {/* <Logo /> */}
+            <Logo />
             <Navmenu user={user} setUser={setUser} />
           </nav>
           <div className={styles.main__centerblock}>

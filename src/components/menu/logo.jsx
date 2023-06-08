@@ -1,5 +1,5 @@
 // import React from 'react'
-import LogoImg from './logo.png'
+import LogoImg from './logo1.png'
 
 function Logo() {
   // используем LogoImg в атрибуте src

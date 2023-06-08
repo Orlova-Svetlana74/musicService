@@ -30,6 +30,7 @@ function Loginwrapper({setToken}) {
         
       </div>
     </div>
+    
   )
 }
 export default Loginwrapper

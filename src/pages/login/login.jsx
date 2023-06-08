@@ -1,45 +1,49 @@
 // import styles from './trackplayalbum.module.css'
 // import React from 'react'
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './login.module.css'
 import LogoImg from './logo.png'
 
-function Login({setToken}) { 
-  
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+function Login({ setToken }) {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
-  const navigate = useNavigate ();
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    if (username.login) {
-      // console.log (username, password)
-      navigate('/')      
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (username.login) {
+  //     // eslint-disable-next-line no-console
+  //     console.log(username, password)
+  //     navigate('/')
+  //   } else {
+  //     navigate('/login')
+  //   }
+  // }, [])
 
-   const handleUsernameChange = (event) => {
-    setUsername (event.target.value);
-   };
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value)
+  }
   const handlePasswordChange = (event) => {
-  setPassword (event.target.value);
-   };
+    setPassword(event.target.value)
+  }
 
   //  const onSubmit = (event) => {
-  //   event.preventDefault();    
+  //   event.preventDefault();
   //  }
 
   const handleRegister = (event) => {
-    event.preventDefault();
-    navigate('/registration') 
-  } 
+    event.preventDefault()
+    navigate('/registration')
+  }
 
   function handleLogin() {
     const token = 'any_token_value'
     document.cookie = `token=${token}`
     setToken(token)
-    navigate('/');
+    navigate('/')
+    // eslint-disable-next-line no-console
+    console.log(token)
   }
 
   // const handleLogout = () => setUser(null)
@@ -53,7 +57,7 @@ function Login({setToken}) {
         type="text"
         name="login"
         id="username"
-        placeholder="Логин" 
+        placeholder="Логин"
         value={username}
         onChange={handleUsernameChange}
       />
@@ -66,25 +70,24 @@ function Login({setToken}) {
         value={password}
         onChange={handlePasswordChange}
       />
-      <button onClick={handleLogin}
+      <button
+        onClick={handleLogin}
         className={styles.modal__btn_enter}
         type="button"
         id="btnEnter"
-        
       >
         Войти
       </button>
-      <button onClick={handleRegister}
+      <button
+        onClick={handleRegister}
         className={styles.modal__btn_signup}
         type="button"
         id="btnSignUp"
-        
       >
         Зарегистрироваться
       </button>
     </form>
   )
-  
 }
 
 export default Login
