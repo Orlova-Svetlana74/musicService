@@ -10,7 +10,7 @@ function Poisk() {
       <div className={styles.playlist_title__col03}>АЛЬБОМ</div>
       <div className={styles.playlist_title__col04}>
         <svg className={styles.playlist_title__svg} alt="time">
-          <use xlinkHref={`${sprite}#icon-watch`}></use>        
+          <use xlinkHref={`${sprite}#icon-watch`} />
         </svg>
       </div>
     </div>
