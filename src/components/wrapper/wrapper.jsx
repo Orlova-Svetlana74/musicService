@@ -21,7 +21,7 @@ function Wrapper() {
   const [user, setUser] = useState(null)
   const [currentTheme, setCurrentTheme] = useState(themes.light)
   // const theme = useThemeContext;
-  const theme = useMemo(() => ({ theme: 'currentTheme' }), [])
+  
   const toggleTheme = () => {
     if (currentTheme === themes.dark) {
       setCurrentTheme(themes.light)
@@ -29,9 +29,12 @@ function Wrapper() {
     }
     setCurrentTheme(themes.dark)
   }
-
+  const valueTheme = useMemo(
+    () => ({ theme: currentTheme, toggleTheme }),
+    [currentTheme]
+  )
   return (
-    <ThemeContext.Provider value={ { theme, toggleTheme } } >
+    <ThemeContext.Provider value={valueTheme}>
       {/* <ThemeSwitcher onClick={toggleTheme} /> */}
       <div className={styles.wrapper}>
         <div className={styles.container}>

@@ -3,8 +3,10 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './tracktext.module.css'
+import { useThemeContext } from '../wrapper/theme'
 
 function Tracktext() {
+  const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -13,7 +15,13 @@ function Tracktext() {
     return () => clearTimeout(timer)
   }, [])
   return (
-    <div className={styles.track__title_text}>
+    <div
+      className={styles.track__title_text}
+      style={{
+        backgroundColor: theme.background,
+        color: theme.color,
+      }}
+    >
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (
           <Skeleton width={200} count={1} />

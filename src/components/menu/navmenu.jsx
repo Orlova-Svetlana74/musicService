@@ -5,6 +5,7 @@ import Burger from './burger'
 import styles from './navmenu.module.css'
 import ThemeSwitcher from './themeswitcher'
 
+
 // import { useThemeContext } from "../contexts/theme";
 const items = [
   { value: 'Главное', href: '', id: '1' },
@@ -13,8 +14,12 @@ const items = [
 ]
 function Navmenu() {
   const [menuActive, setMenuActive] = useState(false)
+  
   return (
-    <nav className={styles.main__nav}>
+    <nav
+      className={styles.main__nav}
+     
+    >
       <Burger onClick={() => setMenuActive((active) => !active)} />
       <div // eslint-disable-line jsx-a11y/no-static-element-interactions
         className={`${styles.nav__menu}${menuActive ? styles.active : ''}`}

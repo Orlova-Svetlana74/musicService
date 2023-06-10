@@ -1,9 +1,17 @@
 // import React from 'react'
 import styles from './trackimage.module.css'
+import { useThemeContext } from '../wrapper/theme'
 
 function Trackimage() {
+  const { theme } = useThemeContext()
   return (
-    <div className={styles.track__title_image}>
+    <div
+      className={styles.track__title_image}
+      style={{
+        backgroundColor: theme.background,
+        color: theme.color,
+      }}
+    >
       <svg className={styles.track__title_svg} alt="music">
         {/* <use xlinkHref="img/icon/sprite#icon-note" /> */}
         <use xlinkHref="img/icon/sprite#icon-note" />
