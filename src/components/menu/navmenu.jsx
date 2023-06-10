@@ -3,7 +3,9 @@
 import { useState } from 'react'
 import Burger from './burger'
 import styles from './navmenu.module.css'
+import ThemeSwitcher from './themeswitcher'
 
+// import { useThemeContext } from "../contexts/theme";
 const items = [
   { value: 'Главное', href: '', id: '1' },
   { value: 'Мой плейлист', href: '', id: '2' },
@@ -21,11 +23,14 @@ function Navmenu() {
         <ul className={styles.menu__list}>
           {items.map((item) => (
             <li className={styles.menu__item} key={item.id}>
-              <a href = 'true' className={styles.menu__link}>
+              <a href="true" className={styles.menu__link}>
                 {item.href} {item.value}
               </a>
             </li>
           ))}
+          {/*  */}
+
+          <ThemeSwitcher />
         </ul>
       </div>
     </nav>

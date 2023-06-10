@@ -2,11 +2,19 @@
 import { useState } from 'react'
 import Filtrtitle from './filtrtitle'
 import styles from './filtr.module.css'
+import { useThemeContext } from '../wrapper/theme'
 
 function Filtr() {
+  const { theme } = useThemeContext()
   const [visibleFilter, setVisibleFilter] = useState(null)
   return (
-    <div className={styles.centerblock__filter}>
+    <div
+      className={styles.centerblock__filter}
+      style={{
+        backgroundColor: theme.background,
+        color: theme.color,
+      }}
+    >
       <Filtrtitle />
       <button
         type="button"
