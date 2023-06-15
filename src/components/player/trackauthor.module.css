@@ -15,4 +15,13 @@
     line-height: 24px;
     color: #FFFFFF;
     text-align: left;
+    color: #FFFFFF;
+    color: var(--text-color); 
+  }
+  .light.track__title_link {
+    --text-color: #000;
+  }
+
+  .dark.track__title_link {
+    --text-color: #fff;
   }

@@ -2,8 +2,8 @@
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
-    color: #FFFFFF;
+    line-height: 24px;    
+    color: var(--text-color); 
   }
 
   .track__title_span {
@@ -11,5 +11,12 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #4E4E4E;
+    color: #4e4e4e;
+  }
+  .light.track__title_link {
+    --text-color: #000;
+  }
+
+  .dark.track__title_link {
+    --text-color: #fff;
   }

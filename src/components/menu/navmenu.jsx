@@ -4,21 +4,26 @@ import { useState } from 'react'
 import Burger from './burger'
 import styles from './navmenu.module.css'
 import ThemeSwitcher from './themeswitcher'
+// import { themes, useThemeContext } from '../wrapper/theme'
 
-
-// import { useThemeContext } from "../contexts/theme";
 const items = [
   { value: 'Главное', href: '', id: '1' },
   { value: 'Мой плейлист', href: '', id: '2' },
   { value: 'Войти', href: '', id: '3' },
 ]
 function Navmenu() {
+  // const { theme } = useThemeContext()
   const [menuActive, setMenuActive] = useState(false)
-  
+  // const isLight = theme === themes.light
+  // const themeClass = isLight ? styles.light : styles.dark
   return (
     <nav
-      className={styles.main__nav}
-     
+      className=
+      {styles.main__nav}
+      // style={{
+      //   backgroundColor: theme.background,
+      //   color: theme.color,
+      // }}
     >
       <Burger onClick={() => setMenuActive((active) => !active)} />
       <div // eslint-disable-line jsx-a11y/no-static-element-interactions
@@ -34,7 +39,6 @@ function Navmenu() {
             </li>
           ))}
           {/*  */}
-
           <ThemeSwitcher />
         </ul>
       </div>
