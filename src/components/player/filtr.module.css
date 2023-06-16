@@ -20,27 +20,27 @@
     margin-right: 15px;
   }
 
-  .filter-button {
+  .filter_button {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    border: 1px solid #FFFFFF;
+    /* border: 1px solid #FFFFFF; */
     border-radius: 60px;
     padding: 6px 20px;
-    color: #FFFFFF;
-    background: #000;
+    /* color: #FFFFFF; */
+    /* background: #000; */
     color: var(--text-color);
     background-color: var(--back-color);
     border: var(--border-color);
   }
-  .light.filter-button {
+  .light.filter_button {
     --text-color: #fff;
     --back-color: #000;
     --border-color:1px solid #000;
   }
 
-  .dark.filter-button {
+  .dark.filter_button {
     --text-color: #000;
     --back-color: #fff;
     --border-color:1px solid #FFFFFF;
