@@ -1,6 +1,7 @@
 .main__nav {
     width: 244px;
-    background-color: #181818;
+    background-color: var(--background-color);
+    /* background-color: #181818; */
     padding: 20px 0 20px 36px;
   }
 
@@ -24,7 +25,7 @@
     margin-bottom: 16px;
   }
   .menu__link {
-    color: #FFFFFF;
+    color: inherit;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;

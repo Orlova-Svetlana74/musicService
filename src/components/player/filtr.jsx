@@ -1,12 +1,20 @@
 // import React from 'react'
 import { useState } from 'react'
+import classNames from 'classnames'
 import Filtrtitle from './filtrtitle'
 import styles from './filtr.module.css'
 import { useThemeContext } from '../wrapper/theme'
 
+
 function Filtr() {
   const { theme } = useThemeContext()
   const [visibleFilter, setVisibleFilter] = useState(null)
+  // const isLight = theme === themes.light  
+  // const themeClass = isLight ? styles.light : styles.dark
+  const authorFilterClass = classNames({
+		[styles['filter-button']]: true,
+		[styles['filter-button-active']]: visibleFilter === 'author',
+	});
   return (
     <div
       className={styles.centerblock__filter}
@@ -18,9 +26,7 @@ function Filtr() {
       <Filtrtitle />
       <button
         type="button"
-        className={`${styles.filter__button} ${
-          visibleFilter === 'author' ? styles.filter__button_active : ''
-        }`}
+        className={authorFilterClass}
         onClick={() => setVisibleFilter('author')}
       >
         {visibleFilter === 'author' ? (
@@ -36,9 +42,7 @@ function Filtr() {
 
       <button
         type="button"
-        className={`${styles.filter__button} ${
-          visibleFilter === 'year' ? styles.filter__button_active : ''
-        }`}
+        className={authorFilterClass}
         onClick={() => setVisibleFilter('year')}
       >
         {visibleFilter === 'year' ? (
@@ -54,9 +58,7 @@ function Filtr() {
 
       <button
         type="button"
-        className={`${styles.filter__button} ${
-          visibleFilter === 'genre' ? styles.filter__button_active : ''
-        }`}
+        className={authorFilterClass}
         onClick={() => setVisibleFilter('genre')}
       >
         {visibleFilter === 'genre' ? (

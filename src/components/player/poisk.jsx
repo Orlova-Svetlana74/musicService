@@ -1,17 +1,17 @@
 // import React from 'react'
 import styles from './poisk.module.css'
 import sprite from '../../img/icon/sprite.svg'
-import { useThemeContext } from '../wrapper/theme'
+// import { useThemeContext } from '../wrapper/theme'
 
 function Poisk() {
-  const { theme } = useThemeContext()
+  // const { theme } = useThemeContext()
   return (
     <div
       className={styles.content__title}
-      style={{
-        backgroundColor: theme.background,
-        color: theme.color,
-      }}
+      // style={{
+      //   backgroundColor: theme.background,
+      //   color: theme.color,
+      // }}
     >
       <div className={styles.playlist_title__col01}>Трек</div>
       <div className={styles.playlist_title__col02}>ИСПОЛНИТЕЛЬ</div>

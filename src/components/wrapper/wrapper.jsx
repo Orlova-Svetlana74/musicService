@@ -12,46 +12,37 @@ import Sidebarperson from '../sidebar/sidebarperson'
 import Footer from '../footer/footer'
 import styles from './wrapper.module.css'
 // import { UserContext } from "./contexts/user";
-import { useThemeContext } from './theme'
+import { useThemeContext, themes } from './theme'
 
 function Wrapper() {
   const { theme } = useThemeContext()
   const [user, setUser] = useState(null)
   // const [loading, setLoading] = useState(true)
-
+  const isLight = theme === themes.light
+  const themeClass = isLight ? styles.light : styles.dark
   return (
     <div
-      className={styles.wrapper}
-      style={{
-        backgroundColor: theme.background,
-        color: theme.color,
-      }}
+      // className={styles.wrapper}
+      className={themeClass}
+      // style={{
+      //   backgroundColor: theme.background,
+      //   color: theme.color,
+      // }}
     >
       <div
         className={styles.container}
-        // style={{
-        //   backgroundColor: theme.background,
-        //   color: theme.color,
-        // }}
+        style={{
+          backgroundColor: theme.background,
+          color: theme.color,
+        }}
       >
         <main className={styles.main}>
           <nav className={styles.main__nav}>
             <Logo />
             <Navmenu user={user} setUser={setUser} />
           </nav>
-          <div
-            className={styles.main__centerblock}
-            // style={{
-            //   backgroundColor: theme.background,
-            //   color: theme.color,
-            // }}
-          >
-            <div className={styles.centerblock__search}
-            // style={{
-            //   backgroundColor: theme.background,
-            //   color: theme.color,
-            // }}
-            >
+          <div className={styles.main__centerblock}>
+            <div className={styles.centerblock__search}>
               <svg className={styles.search__svg}>
                 <use xlinkHref="img/icon/sprite.svg#icon-search" />
               </svg>

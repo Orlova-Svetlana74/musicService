@@ -3,10 +3,10 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './trackalbum.module.css'
-import { useThemeContext } from '../wrapper/theme'
+// import { useThemeContext } from '../wrapper/theme'
 
 function Trackalbum() {
-  const { theme } = useThemeContext()
+  // const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,10 +17,10 @@ function Trackalbum() {
   return (
     <div
       className={styles.track__album}
-      style={{
-        backgroundColor: theme.background,
-        color: theme.color,
-      }}
+      // style={{
+      //   backgroundColor: theme.background,
+      //   color: theme.color,
+      // }}
     >
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (

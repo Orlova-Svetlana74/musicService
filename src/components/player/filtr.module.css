@@ -20,7 +20,7 @@
     margin-right: 15px;
   }
 
-  .filter__button {
+  .filter-button {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -29,9 +29,24 @@
     border-radius: 60px;
     padding: 6px 20px;
     color: #FFFFFF;
-    background:black
+    background: #000;
+    color: var(--text-color);
+    background-color: var(--back-color);
+    border: var(--border-color);
   }
-  .filter__button_active {
+  .light.filter-button {
+    --text-color: #fff;
+    --back-color: #000;
+    --border-color:1px solid #000;
+  }
+
+  .dark.filter-button {
+    --text-color: #000;
+    --back-color: #fff;
+    --border-color:1px solid #FFFFFF;
+  }
+
+  .filter-button-active {
     border-color: #AD61FF;
     color: #AD61FF;
     cursor: pointer;

@@ -2,13 +2,16 @@
     width: 100%;
     min-height: 100%;
     overflow: hidden;
-    background-color: #383838;
+    /* background-color: #383838; */
   }
   .container {
     max-width: 1920px;
     height: 100vh;
     margin: 0 auto;
     position: relative;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
     background-color: var(--background-color);
   }
   .light.container {    
@@ -34,7 +37,7 @@
   }
   .main__nav {
     width: 244px;
-    background-color: #181818;
+    background-color: var(--background-color);
     padding: 20px 0 20px 36px;
   }
   .main__centerblock {

@@ -3,10 +3,10 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './tracktext.module.css'
-import { themes, useThemeContext } from '../wrapper/theme'
+// import { themes, useThemeContext } from '../wrapper/theme'
 
 function Tracktext() {
-  const { theme } = useThemeContext()
+  // const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,18 +15,18 @@ function Tracktext() {
     return () => clearTimeout(timer)
   }, [])
   
-  const isLight = theme === themes.light
+  // const isLight = theme === themes.light
   // console.log('isLight:', isLight)
 
-  const themeClass = isLight ? styles.light : styles.dark
+  // const themeClass = isLight ? styles.light : styles.dark
   return (
     <div
-      className={themeClass}
+      // className={themeClass}
       // {styles.track__title_text}
-      style={{
-        backgroundColor: theme.background,
-        color: theme.color,
-      }}
+      // style={{
+      //   backgroundColor: theme.background,
+      //   color: theme.color,
+      // }}
     >
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (

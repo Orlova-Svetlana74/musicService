@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import './css/style.css'
-import Wrapper from './components/wrapper/wrapper'
+// import Wrapper from './components/wrapper/wrapper'
 import AppRoutes from './pages/routers'
 import { USERS } from './constants'
 import UserTrack from './pages/track/usertrack'
@@ -9,7 +9,7 @@ import {
   useThemeContext,
   themes,
 } from './components/wrapper/theme'
-import styles from './App.module.css'
+// import styles from './App.module.css'
 
 function App() {
   const { theme } = useThemeContext()
@@ -32,14 +32,14 @@ function App() {
   return (
     <ThemeContext.Provider value={valueTheme}>
       <div
-        className={styles.App}
+        // className={styles.App}
         style={{
           backgroundColor: theme.background,
           color: theme.color,
         }}
       >
         <AppRoutes user={user} />
-        <Wrapper />
+        {/* <Wrapper /> */}
         <UserTrack users={USERS} />
       </div>
     </ThemeContext.Provider>
