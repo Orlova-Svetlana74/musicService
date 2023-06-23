@@ -2,51 +2,75 @@
 // import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import {
+  usePostTokenMutation,
+  usePostLoginMutation,
+} from '../../store/api/userApi'
+
+import { userLogin } from '../../store/slices/userSlice'
 import styles from './login.module.css'
 import LogoImg from './logo.png'
 
-function Login({ setToken }) {
-  const [username, setUsername] = useState('')
+function Login() {
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   if (username.login) {
-  //     // eslint-disable-next-line no-console
-  //     console.log(username, password)
-  //     navigate('/')
-  //   } else {
-  //     navigate('/login')
-  //   }
-  // }, [])
+  // eslint-disable-next-line no-empty-pattern
+  const [postToken, {}] = usePostTokenMutation()
+  // eslint-disable-next-line no-empty-pattern
+  const [postLogin, {}] = usePostLoginMutation()
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value)
+  const handleLogin = async () => {
+    await postToken({ email, password })
+      .unwrap()
+      .then((token) => {
+        // console.log(token);
+
+        // Сохраняем token в localStorage
+        localStorage.setItem('token', token.refresh)
+
+        postLogin({ email, password }).then((user) => {
+          localStorage.setItem('user_id', user.data.id)
+          // console.log(user)
+          dispatch(
+            userLogin({
+              email: user.data.email,
+              id: user.data.id,
+              token: token.access,
+            })
+          )
+          navigate('/')
+          // console.log('переход на главную страницу')
+        })
+        // .catch((error) => {
+        // console.log(error)
+        // Выводим ошибку на экране
+        // alert(`Ошибка при получении токена. Попробуйте еще раз.`)
+        // })
+      })
+    // .catch((error) => {
+    // console.log(error)
+    // Выводим ошибку на экране
+    // alert(`Ошибка ${error.status}: ${error.data.detail}`)
+    // })
   }
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value)
-  }
 
-  //  const onSubmit = (event) => {
-  //   event.preventDefault();
-  //  }
-
-  const handleRegister = (event) => {
-    event.preventDefault()
+  function handleRegister() {
     navigate('/registration')
   }
 
-  function handleLogin() {
-    const token = 'any_token_value'
-    document.cookie = `token=${token}`
-    setToken(token)
-    navigate('/')
-    // eslint-disable-next-line no-console
-    console.log(token)
-  }
+  // function handleLogin() {
+  //   const token = 'any_token_value'
+  //   document.cookie = `token=${token}`
+  //   setToken(token)
+  //   navigate('/')
+  //   // eslint-disable-next-line no-console
+  //   console.log(token)
+  // }
 
-  // const handleLogout = () => setUser(null)
   return (
     <form className={styles.modal__form_login} id="formLogIn action=">
       <div className={styles.modal__logo}>
@@ -54,21 +78,17 @@ function Login({ setToken }) {
       </div>
       <input
         className={styles.modal__input}
-        type="text"
-        name="login"
-        id="username"
-        placeholder="Логин"
-        value={username}
-        onChange={handleUsernameChange}
+        type="email"
+        id="email"
+        placeholder="Email"
+        onChange={(e) => setEmail(e.target.value)}
       />
       <input
         className={styles.modal__input}
         type="password"
-        name="password"
         id="password"
         placeholder="Пароль"
-        value={password}
-        onChange={handlePasswordChange}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <button
         onClick={handleLogin}
@@ -89,5 +109,5 @@ function Login({ setToken }) {
     </form>
   )
 }
-
-export default Login
+export default Login 
+  

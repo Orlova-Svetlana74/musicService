@@ -5,7 +5,8 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './tracktime.module.css'
 import { useThemeContext } from '../wrapper/theme'
 
-function Tracktime() {
+function Tracktime(props) {
+  const { time} = props
   const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -26,7 +27,7 @@ function Tracktime() {
         {loading ? (
           <Skeleton width={50} count={1} />
         ) : (
-          <span className={styles.track__time_text}>2:22</span>
+          <span className={styles.track__time_text}>{(time / 60).toFixed(2)}</span>
         )}
       </SkeletonTheme>
     </div>

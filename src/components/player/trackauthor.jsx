@@ -5,7 +5,9 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './trackauthor.module.css'
 import {themes, useThemeContext } from '../wrapper/theme'
 
-function Trackauthor() {
+function Trackauthor(props) {
+
+  const {author} = props
   const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
@@ -28,8 +30,8 @@ function Trackauthor() {
         {loading ? (
           <Skeleton width={200} count={1} />
         ) : (
-          <a className={styles.track__author_link} href="http://">
-            Dynoro, Outwork, Mr. Gee
+          <a className={styles.track__author_link} href="http://">{author}
+            
           </a>
         )}
       </SkeletonTheme>

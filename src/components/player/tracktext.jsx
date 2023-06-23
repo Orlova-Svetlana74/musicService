@@ -5,9 +5,11 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './tracktext.module.css'
 // import { themes, useThemeContext } from '../wrapper/theme'
 
-function Tracktext() {
+function Tracktext(props) {
+  const {title} = props
   // const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false)
@@ -32,8 +34,8 @@ function Tracktext() {
         {loading ? (
           <Skeleton width={200} count={1} />
         ) : (
-          <a className={styles.track__title_link} href="http://">
-            Elektro <span className={styles.track__title_span} />
+          <a className={styles.track__title_link} href="http://">{title}
+            <span className={styles.track__title_span} />
           </a>
         )}
       </SkeletonTheme>
