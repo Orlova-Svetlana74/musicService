@@ -1,6 +1,7 @@
 // import React from 'react'
+
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import NavBar from '../../components/navbar/navbar'
 // import { NavLink } from 'react-router-dom'
 import { usePostRegMutation } from '../../store/api/userApi'
@@ -16,19 +17,29 @@ function Registration() {
 
   const [postReg, { isSuccess }] = usePostRegMutation()
 
+  useEffect(()=>{
+    if (isSuccess) navigate('/login')  
+  },[isSuccess]
+  )
+
   const RegistrationButton = async () => {
     if(pass !== passRep){
       // alert('Пароль не совпадает')           
       return
-  }
-  await postReg({
+    }
+    try {
+      await postReg({
     "email": email,
     "password": pass,
     "username": email,
-}).unwrap()
+    }).unwrap()
+    } catch (error) {
+      console.error(error)
+    }
+  
 
   // if (isError) return alert('Ошибка данных')
-  if (isSuccess) navigate('/login')
+ 
   // if (isLoading) return alert('Добро пожаловать!')
   }
 

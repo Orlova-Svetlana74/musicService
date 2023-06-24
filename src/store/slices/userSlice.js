@@ -22,9 +22,9 @@ const userSlice = createSlice({
       state.token = action.payload.token
     },
     removeUser: (state) => {            
-      state.id = '',
-      state.email = '',
-      state.userName = '',
+      state.id = ''
+      state.email = ''
+      state.userName = ''
       state.token = ''
     },
     setRefresh: (state, { payload }) => ({

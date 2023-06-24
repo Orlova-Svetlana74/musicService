@@ -1,14 +1,17 @@
 // import styles from './trackplayalbum.module.css'
 // import React from 'react'
-import { useState } from 'react'
+
+import { useSelector,useDispatch } from "react-redux"
+
+import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+
 import {
   usePostTokenMutation,
   usePostLoginMutation,
 } from '../../store/api/userApi'
 
-import { userLogin } from '../../store/slices/userSlice'
+import { setUser, isLogin } from '../../store/slices/userSlice'
 import styles from './login.module.css'
 import LogoImg from './logo.png'
 
@@ -22,7 +25,11 @@ function Login() {
   const [postToken, {}] = usePostTokenMutation()
   // eslint-disable-next-line no-empty-pattern
   const [postLogin, {}] = usePostLoginMutation()
-
+  const isAllowed = useSelector(isLogin)
+  useEffect(()=>{
+    if (isAllowed) navigate('/login')  
+  },[isAllowed]
+  )
   const handleLogin = async () => {
     await postToken({ email, password })
       .unwrap()
@@ -36,7 +43,7 @@ function Login() {
           localStorage.setItem('user_id', user.data.id)
           // console.log(user)
           dispatch(
-            userLogin({
+            setUser({
               email: user.data.email,
               id: user.data.id,
               token: token.access,

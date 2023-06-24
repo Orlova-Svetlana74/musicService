@@ -14,18 +14,25 @@ import Footer from '../footer/footer'
 import styles from './wrapper.module.css'
 // import { UserContext } from "./contexts/user";
 import { useThemeContext, themes } from './theme'
+import { useGetAllTracksQuery } from '../../store/api/musicApi'
+
 // import { setTrackPlay } from '../../store/slices/setTracks'
 
-function Wrapper({dataForId}) {
+// function Wrapper({dataForId}) {
+
+function Wrapper() {
   const { theme } = useThemeContext()
   const [user, setUser] = useState(null)
   // const [loading, setLoading] = useState(true)
   const isLight = theme === themes.light
   const themeClass = isLight ? styles.light : styles.dark
-  let tracksData = []
-  tracksData = dataForId[0].items
+  // let tracksData = []
+  // tracksData = dataForId[0].items
   // const selector = useSelector(setTrackPlay);
   // const {trackId} = selector.payload.track
+
+  const { data = [] } = useGetAllTracksQuery()
+  const tracksData = data
 
   return (
     <div
@@ -65,51 +72,54 @@ function Wrapper({dataForId}) {
             <div className={styles.centerblock__content}>
               <Poisk />
               <div className={styles.content__playlist}>
-              {tracksData.map(item => (
-                <Track key={item.id}
-                            title={item.name}
-                            author={item.author}
-                            album={item.album}
-                            time={item.duration_in_seconds}
-                            stared_user={item.stared_user}
-                            id={item.id}
-                />
-              ))}
-                {/* <div className={styles.playlist_item}> */
-                  /* <div className={styles.playlist_track}> */
-                    /* <div className={styles.track_title}> */}
-                      {/* <div className={styles.track_title_image}>
+                {/* <Track />  */}
+
+                {tracksData.map((item) => (
+                  <Track
+                    key={item.id}
+                    title={item.name}
+                    author={item.author}
+                    album={item.album}
+                    time={item.duration_in_seconds}
+                    stared_user={item.stared_user}
+                    id={item.id}
+                  />
+                ))}
+                <div className={styles.playlist_item}>
+                  <div className={styles.playlist_track}>
+                    <div className={styles.track_title}>
+                      <div className={styles.track_title_image}>
                         <svg className={styles.track_title_svg} alt="music">
                           <use xlinkHref="img/icon/sprite.svg#icon-note" />
                         </svg>
-                      </div> */}
-                      {/* <div className={styles.track_title_text}>
+                      </div>
+                      <div className={styles.track_title_text}>
                         <a className={styles.track_title_link} href="http://">
                           {' '}
                           <span className={styles.track_title_span} />
                         </a>
-                      </div> */}
-                    {/* </div> */}
-                    {/* <div className={styles.track_author}> */}
+                      </div>
+                    </div>
+                    <div className={styles.track_author}>
                       {/* eslint-disable-next-line */}
-                      {/* <a className={styles.track_author_link} href="http://" /> */}
-                    {/* </div> */}
-                    {/* <div className={styles.track_album}> */}
-                      {// eslint-disable-next-line}
-                      /* <a className={styles.track_album_link} href="http://" />
-                      // </div> */}
-                    {/* <div className="track_time">
+                      <a className={styles.track_author_link} href="http://" />
+                    </div>
+                    <div className={styles.track_album}>
+                      {/* eslint-disable-next-line */}
+                      <a className={styles.track_album_link} href="http://" />
+                    </div>
+                    <div className="track_time">
                       <svg className={styles.track_time_svg} alt="time">
                         <use xlinkHref="img/icon/sprite.svg#icon-like" />
                       </svg>
                       <span className={styles.track_time_text} />
-                    </div> */
-                  /* </div> */
-                /* </div> */}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             {
-            // trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
+              // trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
             }
           </div>
           <div className={styles.main_sidebar}>
@@ -123,4 +133,4 @@ function Wrapper({dataForId}) {
     </div>
   )
 }
-export default Wrapper
+export default Wrapper  
