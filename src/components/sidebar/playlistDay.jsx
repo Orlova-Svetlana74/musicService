@@ -1,5 +1,3 @@
-// import React from 'react'
-// import { useSelector } from 'react-redux';
 import { useState } from 'react'
 import Filtr from '../player/filtr'
 import Track from '../player/track'
@@ -8,30 +6,19 @@ import Treki from '../player/treki'
 import Bar from '../bar/bar'
 import Logo from '../menu/logo'
 import Navmenu from '../menu/navmenu'
-import Sidebar from '../sidebar/sidebar'
-import Sidebarperson from '../sidebar/sidebarperson'
+// import Sidebar from '../sidebar/sidebar'
+import Sidebarperson from './sidebarperson'
 import Footer from '../footer/footer'
-import styles from './wrapper.module.css'
+import styles from './playlistDay.module.css'
 // import { UserContext } from "./contexts/user";
-import { useThemeContext, themes } from './theme'
+import { useThemeContext, themes } from '../wrapper/theme'
 import { useGetAllTracksQuery } from '../../store/api/musicApi'
 
-// import { setTrackPlay } from '../../store/slices/setTracks'
-
-// function Wrapper({dataForId}) {
-
-function Wrapper() {
-  // const {naimen} = props
+function PlaylistDay() {
   const { theme } = useThemeContext()
   const [user, setUser] = useState(null)
-  // const [loading, setLoading] = useState(true)
   const isLight = theme === themes.light
   const themeClass = isLight ? styles.light : styles.dark
-  // let tracksData = []
-  // tracksData = dataForId[0].items
-  // const selector = useSelector(setTrackPlay);
-  // const {trackId} = selector.payload.track
-
   const { data = [] } = useGetAllTracksQuery()
   const tracksData = data
 
@@ -68,13 +55,11 @@ function Wrapper() {
                 name="search"
               />
             </div>
-            <Treki naimen="Треки" />
+            <Treki naimen="Плейлист дня" />
             <Filtr />
             <div className={styles.centerblock__content}>
               <Poisk />
               <div className={styles.content__playlist}>
-                {/* <Track />  */}
-
                 {tracksData.map((item) => (
                   <Track
                     key={item.id}
@@ -94,7 +79,7 @@ function Wrapper() {
           </div>
           <div className={styles.main_sidebar}>
             <Sidebarperson />
-            <Sidebar />
+            {/* <Sidebar /> */}
           </div>
         </main>
         <Bar />
@@ -103,4 +88,4 @@ function Wrapper() {
     </div>
   )
 }
-export default Wrapper  
+export default PlaylistDay

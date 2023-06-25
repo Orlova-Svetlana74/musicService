@@ -5,6 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './tracktext.module.css'
 // import { themes, useThemeContext } from '../wrapper/theme'
 
+
 function Tracktext(props) {
   const {title} = props
   // const { theme } = useThemeContext()
@@ -15,20 +16,11 @@ function Tracktext(props) {
       setLoading(false)
     }, 3000)
     return () => clearTimeout(timer)
-  }, [])
-  
-  // const isLight = theme === themes.light
-  // console.log('isLight:', isLight)
-
-  // const themeClass = isLight ? styles.light : styles.dark
+  }, []) 
+ 
   return (
     <div
-      // className={themeClass}
-      // {styles.track__title_text}
-      // style={{
-      //   backgroundColor: theme.background,
-      //   color: theme.color,
-      // }}
+      
     >
       <SkeletonTheme baseColor="#202020" highlightColor="#444">
         {loading ? (

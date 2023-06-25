@@ -17,15 +17,14 @@ import { useThemeContext } from '../wrapper/theme'
 // import { setTrackPlay } from '../../store/slices/setTracks'
 
 function Track(props) {
+  const {author, time, title, album} = props
   const [isFavourite, setFavourite] = useState('')
   const [setLike] = useSetLikeMutation()
   const [setUnlike] = useSetUnlikeMutation()
   // const dispatch = useDispatch(setTrackPlay)
   // const selector = useSelector(setUser)
   // const userId = selector.payload.user.id
-
   // const { id, staredUser } = props
-
   // useEffect(() => {
   //   setFavourite(staredUser.some((user) => user.id === userId))
   // }, [props])
@@ -65,11 +64,10 @@ function Track(props) {
       <div className={styles.playlist__track} >
         <div className={styles.track__title}>
           <Trackimage />
-          <Tracktext />
+          <Tracktext title={title} />
         </div>
-
-        <Trackauthor />
-        <Trackalbum />
+        <Trackauthor author={author} />
+        <Trackalbum album={album}/>
         <svg
           className={styles.track__time_svg}
           alt="time"
@@ -79,7 +77,7 @@ function Track(props) {
             xlinkHref={`${sprite}#icon-${isFavourite ? 'like' : 'dislike'}`}
           />
         </svg>
-        <Tracktime />
+        <Tracktime time={time}/>
       </div>
     </div>
   )

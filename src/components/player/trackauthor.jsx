@@ -6,10 +6,10 @@ import styles from './trackauthor.module.css'
 import {themes, useThemeContext } from '../wrapper/theme'
 
 function Trackauthor(props) {
-
   const {author} = props
   const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false)

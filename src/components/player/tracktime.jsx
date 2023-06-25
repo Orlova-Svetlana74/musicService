@@ -27,7 +27,10 @@ function Tracktime(props) {
         {loading ? (
           <Skeleton width={50} count={1} />
         ) : (
-          <span className={styles.track__time_text}>{(time / 60).toFixed(2)}</span>
+          <span className={styles.track__time_text}>
+            {(time / 60).toFixed(2)}
+            {props.time}
+          </span>
         )}
       </SkeletonTheme>
     </div>

@@ -1,14 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const musicApi = createApi({
-  
-  reducerPath: "musicApi",
+  reducerPath: 'musicApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://painassasin.online/",
+    baseUrl: 'https://painassasin.online/',
     tagTypes: ['Tracks'],
     prepareHeaders: (headers, { getState }) => {
-      const {token} = getState().user
-    //   console.log(token)
+      const { token } = getState().user
+      //   console.log(token)
       if (token) {
         headers.set('Authorization', `Bearer ${token}`)
       }
@@ -18,12 +17,12 @@ export const musicApi = createApi({
   endpoints: (builder) => ({
     getAllTracks: builder.query({
       query: () => 'catalog/track/all',
-      providesTags: ['Tracks'],      
+      providesTags: ['Tracks'],
     }),
     getSelectMusic: builder.query({
-      query: (id) => `catalog/selection/${id}`      
+      query: (id) => `catalog/selection/${id}`,
     }),
-  
+
     setLike: builder.mutation({
       query: (id) => ({
         url: `/catalog/track/${id}/favorite/`,

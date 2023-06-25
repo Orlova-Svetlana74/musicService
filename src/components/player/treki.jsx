@@ -2,7 +2,8 @@
 import styles from './treki.module.css'
 import { useThemeContext } from '../wrapper/theme'
 
-function Treki() {
+function Treki(props) {
+  // const {naimen} = props
   const { theme } = useThemeContext()
   return (
     <h2
@@ -12,7 +13,7 @@ function Treki() {
         color: theme.color,
       }}
     >
-      Треки
+      {props.naimen}
     </h2>
   )
 }
