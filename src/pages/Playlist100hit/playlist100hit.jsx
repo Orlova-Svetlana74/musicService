@@ -1,20 +1,20 @@
 import { useState } from 'react'
-import Filtr from '../player/filtr'
-import Track from '../player/track'
-import Poisk from '../player/poisk'
-import Treki from '../player/treki'
-import Bar from '../bar/bar'
-import Logo from '../menu/logo'
-import Navmenu from '../menu/navmenu'
+// import Filtr from '../../components/player/filtr'
+import Track from '../../components/player/track'
+import Poisk from '../../components/player/poisk'
+import Treki from '../../components/player/treki'
+import Bar from '../../components/bar/bar'
+import Logo from '../../components/menu/logo'
+import Navmenu from '../../components/menu/navmenu'
 // import Sidebar from '../sidebar/sidebar'
-import Sidebarperson from './sidebarperson'
-import Footer from '../footer/footer'
-import styles from './playlistDay.module.css'
+import Sidebarperson from '../../components/sidebar/sidebarperson'
+// import Footer from '../footer/footer'
+import styles from './playlist100hit.module.css'
 // import { UserContext } from "./contexts/user";
-import { useThemeContext, themes } from '../wrapper/theme'
+import { useThemeContext, themes } from '../../components/wrapper/theme'
 import { useGetAllTracksQuery } from '../../store/api/musicApi'
 
-function PlaylistDay() {
+function Playlist100hit() {
   const { theme } = useThemeContext()
   const [user, setUser] = useState(null)
   const isLight = theme === themes.light
@@ -55,8 +55,8 @@ function PlaylistDay() {
                 name="search"
               />
             </div>
-            <Treki naimen="Плейлист дня" />
-            <Filtr />
+            <Treki naimen="100 танцевальных хитов" />
+            {/* <Filtr /> */}
             <div className={styles.centerblock__content}>
               <Poisk />
               <div className={styles.content__playlist}>
@@ -83,9 +83,9 @@ function PlaylistDay() {
           </div>
         </main>
         <Bar />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   )
 }
-export default PlaylistDay
+export default Playlist100hit

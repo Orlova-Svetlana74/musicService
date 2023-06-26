@@ -9,7 +9,7 @@ import ThemeSwitcher from './themeswitcher'
 const items = [
   { value: 'Главное', href: '', id: '1' },
   { value: 'Мой плейлист', href: '', id: '2' },
-  { value: 'Войти', href: '', id: '3' },
+  { value: 'Выйти', href: '', id: '3' },
 ]
 function Navmenu() {
   // const { theme } = useThemeContext()
@@ -33,7 +33,7 @@ function Navmenu() {
         <ul className={styles.menu__list}>
           {items.map((item) => (
             <li className={styles.menu__item} key={item.id}>
-              <a href="true" className={styles.menu__link}>
+              <a href=" " className={styles.menu__link}>
                 {item.href} {item.value}
               </a>
             </li>
