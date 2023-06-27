@@ -3,8 +3,10 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './trackplayalbum.module.css'
+import { useTrack } from '../../hooks/use-track.jsx'
 
 function Trackplayalbum() {
+  const { author } = useTrack()
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,7 +22,7 @@ function Trackplayalbum() {
           <Skeleton count={1} />
         ) : (
           <a className={styles.track_play_album_link} href="http://">
-            Баста
+            {author}
           </a>
         )}
       </SkeletonTheme>

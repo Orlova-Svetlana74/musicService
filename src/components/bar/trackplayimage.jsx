@@ -2,6 +2,7 @@
 // import { useState, useEffect } from 'react'
 // import 'react-loading-skeleton/dist/skeleton.css'
 // import React from 'react'
+import sprite from '../../img/icon/sprite.svg'
 import styles from './trackplayimage.module.css'
 
 function Trackplayimage() {
@@ -19,7 +20,7 @@ function Trackplayimage() {
           <Skeleton count={1} />
         ) : ( */}
       <svg className={styles.track_play_svg} alt="music">
-        <use xlinkHref="img/icon/sprite.svg#icon-note" />
+        <use xlinkHref={`${sprite}#icon-note`} />
       </svg>
       {/* )}
       </SkeletonTheme> */}

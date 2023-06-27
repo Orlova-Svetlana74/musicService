@@ -3,8 +3,10 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useState, useEffect } from 'react'
 import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './trackplayauthor.module.css'
+import { useTrack } from '../../hooks/use-track.jsx'
 
-function Trackplayauthor() {
+function   Trackplayauthor() {
+  const { name } = useTrack()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,7 +21,7 @@ function Trackplayauthor() {
           <Skeleton count={1} />
         ) : (
           <a className={styles.track_play_author_link} href="http://">
-            Ты та...
+            {name}
           </a>
         )}
       </SkeletonTheme>

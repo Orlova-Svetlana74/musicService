@@ -11,6 +11,7 @@
     "prettier",
     "plugin:react/jsx-runtime",
     "plugin:jsx-a11y/recommended"
+    // "plugin:react-hooks/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -32,6 +33,7 @@
     "import/no-named-as-default": 0,
     "import/prefer-default-export": "off",
     "import/extensions": ["off"],
+    
 
     // "jsx-a11y/media-has-caption": [
     //   2,
