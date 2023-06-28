@@ -10,7 +10,7 @@ export const store = configureStore({
     user: userReducer,
     [musicApi.reducerPath]: musicApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
-    currentTrack: currentTrackReducer,
+    track: currentTrackReducer,
     setFilters: setFiltersReducer,
   },
   middleware: (getDefaultMiddlware) =>

@@ -7,7 +7,7 @@ import Trackplayimage from './trackplayimage'
 import Trackplayauthor from './trackplayauthor'
 import Trackplayalbum from './trackplayalbum'
 import styles from './bar.module.css'
-// import { useTrack } from '../../hooks/use-track.jsx'
+import { useTrack } from '../../hooks/use-track.jsx'
 
 export function Bar(props) {
   const dispatch = useDispatch()
@@ -17,15 +17,16 @@ export function Bar(props) {
   const audioRef = useRef(null)
   const clickRef = useRef()
   const [isRepeat, setRepeat] = useState(false)
+  const {id} = useTrack;    
+  const {tracks} = props
 
-  // const src = '/BobbyMarleniDropin.mp3'
-  const { tracks, id } = props
-
-  let index = tracks.findIndex((track) => track.id === id)
+  let index = tracks.findIndex((trackId) => trackId.id === {id})
+  
+  // console.log (tracks)
   if (index < 0) {
     index = 0
+    
   }
-
   const playingTrack = tracks[index]
 
   const handleNext = () => {

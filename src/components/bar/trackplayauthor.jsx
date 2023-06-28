@@ -5,7 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './trackplayauthor.module.css'
 import { useTrack } from '../../hooks/use-track.jsx'
 
-function   Trackplayauthor() {
+function   Trackplayauthor() { 
   const { name } = useTrack()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
