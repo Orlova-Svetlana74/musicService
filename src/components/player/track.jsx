@@ -16,8 +16,8 @@ import styles from './track.module.css'
 import { useThemeContext } from '../wrapper/theme'
 // import { setTrackPlay } from '../../store/slices/setTracks'
 
-function Track(props) {
-  const {author, time, title, album} = props
+function Track({track}) {
+  const {author, time, title, album} = track
   const [isFavourite, setFavourite] = useState('')
   const [setLike] = useSetLikeMutation()
   const [setUnlike] = useSetUnlikeMutation()
@@ -31,10 +31,10 @@ function Track(props) {
 
   const handleSetLike = () => {
     if (isFavourite) {
-      setUnlike(props.id)
+      setUnlike(track.id)
       setFavourite(false)
     } else {
-      setLike(props.id)
+      setLike(track.id)
       setFavourite(true)
     }
   }

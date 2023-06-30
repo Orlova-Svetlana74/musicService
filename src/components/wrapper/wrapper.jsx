@@ -34,7 +34,7 @@ function Wrapper() {
 
   const { data = [] } = useGetAllTracksQuery()
   const tracksData = data
-
+  console.log (tracksData)
   return (
     <div
       // className={styles.wrapper}
@@ -74,19 +74,21 @@ function Wrapper() {
               <Poisk />
               <div className={styles.content__playlist}>
                 {/* <Track />  */}
-
-                {tracksData.map((item) => (
+                {tracksData.length === 0 ? '' :
+                tracksData.map((track) => (
                   <Track
-                    key={item.id}
-                    title={item.name}
-                    author={item.author}
-                    album={item.album}
-                    time={item.duration_in_seconds}
-                    stared_user={item.stared_user}
-                    id={item.id}
+                    key={track.id}
+                    title={track.name}
+                    author={track.author}
+                    album={track.album}
+                    time={track.duration_in_seconds}
+                    stared_user={track.stared_user}
+                    id={track.id}
                   />
                 ))}
+              
               </div>
+
             </div>
             {
               // trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
@@ -97,7 +99,7 @@ function Wrapper() {
             <Sidebar />
           </div>
         </main>
-        <Bar />
+        <Bar tracks = {tracksData} />
         <Footer />
       </div>
     </div>

@@ -1,19 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  trackId: {}
-};
+const initialState = {   
+    track: {}
+  };
 
 const setTracks = createSlice({
-  name: 'track',
-    initialState,  
-  reducers: {   
-      setTrackPlay: (state, action)=>{        
-// eslint no-param-reassign: "error"
-        state.trackId = action.payload.trackId;
-      },
-  }
-})
+  name: 'currentTrack',
+    initialState,
 
-export const { setTrackPlay  } = setTracks.actions
-export default setTracks.reducer
+
+  reducers: {   
+
+    setCurrentTrack: (state, action) => {
+      /* eslint no-param-reassign: "error" */
+      state.track = action.payload.track;     
+    },
+
+
+  },
+});
+
+export const {setCurrentTrack} = setTracks.actions;
+export default setTracks.reducer;

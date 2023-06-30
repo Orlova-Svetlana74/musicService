@@ -1,20 +1,39 @@
+// @ts-nocheck
 // import React from 'react'
 import { useState } from 'react'
+// import { useSelector } from 'react-redux'
+// import { useGetAllTracksQuery } from '../../store/api/musicApi'
 // import classNames from 'classnames'
 import Filtrtitle from './filtrtitle'
 import styles from './filtr.module.css'
-import {themes, useThemeContext } from '../wrapper/theme'
-
+import { themes, useThemeContext } from '../wrapper/theme'
+// import {
+//   removeFilterYears,
+//   removeFilterAuthor,
+//   removeFilterGenre,
+// } from '../../store/slices/setFilters'
 
 function Filtr() {
+  // const [activeCategory, setActiveCategory] = useState(null);
+  // const dispatch = useDispatch()
   const { theme } = useThemeContext()
+  // const { data } = useGetAllTracksQuery()
   const [visibleFilter, setVisibleFilter] = useState(null)
-  const isLight = theme === themes.light  
+  const isLight = theme === themes.light
   const themeClass = isLight ? styles.light : styles.dark
-  // const authorFilterClass = classNames({
-	// 	[styles['filter-button']]: true,
-	// 	[styles['filter-button-active']]: visibleFilter === 'author',
-	// });
+
+  // const authorTrack = data.map((item) => item.author)
+  // const author = Array.from(new Set(authorTrack))
+
+  // const genreTrack = data.map((item) => item.genre)
+  // const genre = Array.from(new Set(genreTrack))
+
+  // const years = ['Сначала новые', 'Сначала старые']
+
+  // const filterAuthor = useSelector((state) => state.setFilters.author)
+  // const filterGenre = useSelector((state) => state.setFilters.genre)
+  // const filterYears = useSelector((state) => state.setFilters.years)
+  // console.log(filterAuthor, author, genre, years, filterGenre, filterYears)
   return (
     <div
       className={styles.centerblock__filter}
@@ -30,10 +49,13 @@ function Filtr() {
         onClick={() => setVisibleFilter('author')}
       >
         {visibleFilter === 'author' ? (
-          <div className={styles.dropdown_author}>
-            {' '}
-            1 исполнитель,2 исполнитель,3 исполнитель
-          </div>
+          
+          <div className={styles.dropdown_author}>{
+            // author.map((item)=>(<div key={item}>
+            //   {item}
+            // </div>
+              // )) 
+          } </div>
         ) : (
           ''
         )}

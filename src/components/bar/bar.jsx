@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAudio } from 'react-use'
 import { useDispatch } from 'react-redux'
 import sprite from '../../img/icon/sprite.svg'
-import { setTrackPlay } from '../../store/slices/setTracks'
+import { setCurrentTrack } from '../../store/slices/setTracks'
 import Trackplayimage from './trackplayimage'
 import Trackplayauthor from './trackplayauthor'
 import Trackplayalbum from './trackplayalbum'
@@ -10,25 +10,26 @@ import styles from './bar.module.css'
 import { useTrack } from '../../hooks/use-track.jsx'
 
 export function Bar(props) {
-  const dispatch = useDispatch()
   const [isShuffle, setShuffle] = useState(false)
-  const [isPlaying] = useState(false)
-  const [position, setPosition] = useState()
-  const audioRef = useRef(null)
-  const clickRef = useRef()
+  const dispatch = useDispatch()
   const [isRepeat, setRepeat] = useState(false)
-  const {id} = useTrack;    
-  const {tracks} = props
+  // const [isPlaying] = useState(false)
+  const [position, setPosition] = useState()
+  // const audioRef = useRef(null)
+  const clickRef = useRef()
+  const { id } = useTrack()
 
-  let index = tracks.findIndex((trackId) => trackId.id === {id})
-  
-  // console.log (tracks)
+  const { tracks } = props
+
+  let index = tracks.findIndex((track) => track.id === id)
   if (index < 0) {
     index = 0
-    
   }
-  const playingTrack = tracks[index]
+  console.log(tracks)
 
+  const playingTrack = tracks[index]
+  console.log(playingTrack)
+  
   const handleNext = () => {
     if (isShuffle) {
       index = Math.floor(Math.random() * tracks.length)
@@ -37,19 +38,7 @@ export function Bar(props) {
     index = index > tracks.length - 1 ? 0 : tracks[index]
 
     dispatch(
-      setTrackPlay({
-        track: index,
-      })
-    )
-  }
-  const handlePrev = () => {
-    if (isShuffle) {
-      index = Math.floor(Math.random() * tracks.length)
-    } else index -= 1
-
-    index = index < 0 ? 0 : tracks[index]
-    dispatch(
-      setTrackPlay({
+      setCurrentTrack({
         track: index,
       })
     )
@@ -66,6 +55,19 @@ export function Bar(props) {
       }
     },
   })
+
+  const handlePrev = () => {
+    if (isShuffle) {
+      index = Math.floor(Math.random() * tracks.length)
+    } else index -= 1
+
+    index = index < 0 ? 0 : tracks[index]
+    dispatch(
+      setCurrentTrack({
+        track: index,
+      })
+    )
+  }
 
   useEffect(() => {
     const { duration } = state
@@ -86,9 +88,9 @@ export function Bar(props) {
     controls.volume(0.5)
   }, [])
 
-  const icon = isPlaying ? 'pause' : 'play'
+  // const icon = isPlaying ? 'pause' : 'play'
   // eslint-disable-next-line no-console
-  console.log('🚀 ~ file: Bar.jsx:18 ~ Bar ~ icon:', icon)
+  // console.log('🚀 ~ file: Bar.jsx:18 ~ Bar ~ icon:', icon)
 
   // useEffect(() => {
   //   if (isPlaying) {
@@ -121,10 +123,12 @@ export function Bar(props) {
   // }
 
   const checkWidth = (e) => {
-    const width = clickRef.current.clientWidth
-    const offset = e.nativeEvent.offsetX
-    const divprogress = (offset / width) * 100
-    audioRef.current.currentTime = (divprogress / 100) * position.length
+    if (clickRef.current) {
+      const width = clickRef.current.clientWidth
+      const offset = e.nativeEvent.offsetX
+      const divprogress = (offset / width) * 100
+      controls.seek(state.duration * (divprogress / 100))
+    }
   }
   return (
     <div className={styles.bar}>
@@ -143,7 +147,7 @@ export function Bar(props) {
           <div
             className={styles.seekBar}
             style={{
-              width: position ? `${position.progress}%` : '',
+              width: position ? `${position.progress}+'%'` : '',
             }}
           />
         </div>
@@ -169,10 +173,14 @@ export function Bar(props) {
               {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
               <div
                 className={styles.player_btn_play}
-                onClick={state.playing ? controls.pause : controls.play}
+                // onClick={state.playing ? controls.pause : controls.play}
               >
-                <svg className={styles.player_btn_play_svg} alt="stop">
-                  <use xlinkHref={`${sprite}#icon-${icon}`} />
+                <svg
+                  className={styles.player_btn_play_svg}
+                  onClick={state.playing ? controls.pause : controls.play}
+                  alt="stop"
+                >
+                  {/* <use xlinkHref={`${sprite}#icon-${icon}`} /> */}
                 </svg>
                 {/* <svg className={styles.player_btn_play_svg} alt="play">
                   <use xlinkHref={`${sprite}#icon-play`} />
