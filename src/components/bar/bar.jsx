@@ -18,7 +18,6 @@ export function Bar(props) {
   // const audioRef = useRef(null)
   const clickRef = useRef()
   const { id } = useTrack()
-
   const { tracks } = props
 
   let index = tracks.findIndex((track) => track.id === id)
@@ -28,8 +27,11 @@ export function Bar(props) {
   console.log(tracks)
 
   const playingTrack = tracks[index]
+
   console.log(playingTrack)
+
   
+
   const handleNext = () => {
     if (isShuffle) {
       index = Math.floor(Math.random() * tracks.length)
@@ -40,8 +42,8 @@ export function Bar(props) {
     dispatch(
       setCurrentTrack({
         track: index,
-      })
-    )
+      }),
+    );
   }
   const [audio, state, controls] = useAudio({
     src: playingTrack.track_file,
@@ -49,6 +51,7 @@ export function Bar(props) {
     onEnded: () => {
       if (!isRepeat) {
         handleNext()
+
       } else {
         controls.seek(0)
         controls.play()

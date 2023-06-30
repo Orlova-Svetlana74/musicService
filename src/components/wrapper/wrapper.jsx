@@ -34,7 +34,8 @@ function Wrapper() {
 
   const { data = [] } = useGetAllTracksQuery()
   const tracksData = data
-  console.log (tracksData)
+  console.log ([data] )
+
   return (
     <div
       // className={styles.wrapper}
