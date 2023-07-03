@@ -95,18 +95,13 @@
   background-color: rgb(49, 49, 49);
   }
 
-  .circle_count {
-    position: absolute;
-    background: #ccc;
-    color: #000;
-    text-align: center;
-    border-radius: 50%;
-    border: 0.5px solid whitesmoke;
-    top: -45%;
-    left: 80%;
-    font-size: 14px;
-    color: #fff;
-    padding: .2em .7em;
-    background-color: blueviolet; /* Цвет кружка */
+  .dropdown_item {
+    padding: 10px;
+    cursor: pointer;
+    color: var(--color-basic-text);
   }
-  
+
+  .dropdown_item:hover {
+    color: #AD61FF;
+    cursor: pointer;;
+  }

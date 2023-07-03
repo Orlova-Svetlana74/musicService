@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
 // import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Burger from './burger'
 import styles from './navmenu.module.css'
 import ThemeSwitcher from './themeswitcher'
 // import { themes, useThemeContext } from '../wrapper/theme'
 
 const items = [
-  { value: 'Главное', href: '', id: '1' },
-  { value: 'Мой плейлист', href: '', id: '2' },
-  { value: 'Выйти', href: '', id: '3' },
+  { value: 'Главное', to: '/', id: '1' },
+  { value: 'Мой плейлист', to: '/MyTrack', id: '2' },
+  { value: 'Выйти', to: '/login', id: '3' },
 ]
 function Navmenu() {
   // const { theme } = useThemeContext()
@@ -33,9 +34,10 @@ function Navmenu() {
         <ul className={styles.menu__list}>
           {items.map((item) => (
             <li className={styles.menu__item} key={item.id}>
-              <a href=" " className={styles.menu__link}>
-                {item.href} {item.value}
-              </a>
+              {/* <a href=" " className={styles.menu__link}> */}
+              <Link to={item.to}>{item.value}
+              </Link>
+              {/* </a> */}
             </li>
           ))}
           {/*  */}

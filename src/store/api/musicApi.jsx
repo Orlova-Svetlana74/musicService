@@ -16,13 +16,12 @@ export const musicApi = createApi({
   }),
   endpoints: (builder) => ({
     getAllTracks: builder.query({
-      query: () => 'catalog/track/all',
+      query: () => '/catalog/track/all',
       providesTags: ['Tracks'],
     }),
     getSelectMusic: builder.query({
       query: (id) => `catalog/selection/${id}`,
     }),
-
     setLike: builder.mutation({
       query: (id) => ({
         url: `/catalog/track/${id}/favorite/`,

@@ -26,10 +26,12 @@ function Login() {
   // eslint-disable-next-line no-empty-pattern
   const [postLogin, {}] = usePostLoginMutation()
   const isAllowed = useSelector(isLogin)
+
   useEffect(()=>{
-    if (isAllowed) navigate('/login')  
+    if (!isAllowed) navigate('/login')  
   },[isAllowed]
   )
+  
   const handleLogin = async () => {
     await postToken({ email, password })
       .unwrap()

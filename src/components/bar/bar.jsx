@@ -8,8 +8,9 @@ import Trackplayauthor from './trackplayauthor'
 import Trackplayalbum from './trackplayalbum'
 import styles from './bar.module.css'
 import { useTrack } from '../../hooks/use-track.jsx'
+import {useGetAllTracksQuery} from "../../store/api/musicApi";
 
-export function Bar(props) {
+export function Bar() {
   const [isShuffle, setShuffle] = useState(false)
   const dispatch = useDispatch()
   const [isRepeat, setRepeat] = useState(false)
@@ -18,9 +19,11 @@ export function Bar(props) {
   // const audioRef = useRef(null)
   const clickRef = useRef()
   const { id } = useTrack()
-  const { tracks } = props
 
-  let index = tracks.findIndex((track) => track.id === id)
+  const { data } = useGetAllTracksQuery()
+  const tracks = data || []
+
+  let index = tracks?.findIndex((track) => track.id === id)
   if (index < 0) {
     index = 0
   }
@@ -30,7 +33,6 @@ export function Bar(props) {
 
   console.log(playingTrack)
 
-  
 
   const handleNext = () => {
     if (isShuffle) {
@@ -46,7 +48,7 @@ export function Bar(props) {
     );
   }
   const [audio, state, controls] = useAudio({
-    src: playingTrack.track_file,
+    src: playingTrack?.track_file,
     autoPlay: true,
     onEnded: () => {
       if (!isRepeat) {
@@ -57,6 +59,7 @@ export function Bar(props) {
         controls.play()
       }
     },
+    
   })
 
   const handlePrev = () => {

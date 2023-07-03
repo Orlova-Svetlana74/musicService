@@ -1,39 +1,38 @@
-// import React from 'react'
-// import { useSelector } from 'react-redux';
 import { useState } from 'react'
-import Filtr from '../player/filtr'
-import Poisk from '../player/poisk'
-import Treki from '../player/treki'
-import Bar from '../bar/bar'
-import Logo from '../menu/logo'
-import Navmenu from '../menu/navmenu'
-import Sidebar from '../sidebar/sidebar'
-import Sidebarperson from '../sidebar/sidebarperson'
-import Footer from '../footer/footer'
-import styles from './wrapper.module.css';
-import Track from '../player/track'
-import { useGetAllTracksQuery } from '../../store/api/musicApi'
-
+// import Filtr from '../../components/player/filtr'
+import TrackFavorit from '../../components/player/track'
+import Poisk from '../../components/player/poisk'
+import Treki from '../../components/player/treki'
+import Bar from '../../components/bar/bar'
+import Logo from '../../components/menu/logo'
+import Navmenu from '../../components/menu/navmenu'
+// import Sidebar from '../sidebar/sidebar'
+import Sidebarperson from '../../components/sidebar/sidebarperson'
+// import Footer from '../footer/footer'
+import styles from './myTrack.module.css'
 // import { UserContext } from "./contexts/user";
-import { useThemeContext, themes } from './theme'
+import { useThemeContext, themes } from '../../components/wrapper/theme'
+import { useGetAllTracksQuery } from '../../store/api/musicApi'
+import {useTrack} from "../../hooks/use-track"
 
-// import { setTrackPlay } from '../../store/slices/setTracks'
-
-// function Wrapper({dataForId}) {
-
-function Wrapper() {
-  // const {naimen} = props
+function MyTrack() {
+    
   const { theme } = useThemeContext()
   const [user, setUser] = useState(null)
-  // const [loading, setLoading] = useState(true)
   const isLight = theme === themes.light
   const themeClass = isLight ? styles.light : styles.dark
   const { data = [] } = useGetAllTracksQuery()
-  const tracksData = data
+  const {id} = useTrack();
+  const TRACKS = data;
 
   return (
     <div
+      // className={styles.wrapper}
       className={themeClass}
+      // style={{
+      //   backgroundColor: theme.background,
+      //   color: theme.color,
+      // }}
     >
       <div
         className={styles.container}
@@ -59,37 +58,31 @@ function Wrapper() {
                 name="search"
               />
             </div>
-            <Treki naimen="Треки" />
-            <Filtr />
+            <Treki naimen="Мои треки" />
+            {/* <Filtr /> */}
             <div className={styles.centerblock__content}>
               <Poisk />
-
+              <div className={styles.content__playlist}>                
+                  <TrackFavorit                    
+                  />               
+              </div>
             </div>
-
-            {tracksData.map((item) => (
-                  <Track
-                    key={item.id}
-                    title={item.name}
-                    author={item.author}
-                    album={item.album}
-                    time={item.duration_in_seconds}
-                    stared_user={item.stared_user}
-                    id={item.id}
-                  />
-                ))}
             {
               // trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
             }
           </div>
           <div className={styles.main_sidebar}>
             <Sidebarperson />
-            <Sidebar />
+            {/* <Sidebar /> */}
           </div>
         </main>
-        <Bar />
-        <Footer />
+        {id ?
+        <Bar 
+        tracks = {TRACKS} /> : ''}
+        
+        {/* <Footer /> */}
       </div>
     </div>
   )
 }
-export default Wrapper
+export default MyTrack

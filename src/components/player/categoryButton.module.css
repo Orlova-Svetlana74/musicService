@@ -95,18 +95,32 @@
   background-color: rgb(49, 49, 49);
   }
 
-  .circle_count {
-    position: absolute;
-    background: #ccc;
-    color: #000;
-    text-align: center;
-    border-radius: 50%;
-    border: 0.5px solid whitesmoke;
-    top: -45%;
-    left: 80%;
-    font-size: 14px;
-    color: #fff;
-    padding: .2em .7em;
-    background-color: blueviolet; /* Цвет кружка */
+  .filter__button {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border: 1px solid var(--color-basic-text);
+    border-radius: 60px;
+    padding: 6px 20px;
+    background-color:var(--background-color);
+    color: var(--color-basic-text);
+    width: 100%;
+    height: 100%;
   }
+
+  .filter__button.active{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 60px;
+    padding: 6px 20px;
+    background-color: var(--background-color);
+    border-color: #AD61FF;
+    color: #AD61FF;
+    cursor: pointer;
+  }
+
   
+

@@ -16,8 +16,8 @@ import styles from './track.module.css'
 import { useThemeContext } from '../wrapper/theme'
 // import { setTrackPlay } from '../../store/slices/setTracks'
 
-function Track({track}) {
-  const {author, time, title, album} = track
+function Track(props) {
+  const { id, author, time, title, album } = props
   const [isFavourite, setFavourite] = useState('')
   const [setLike] = useSetLikeMutation()
   const [setUnlike] = useSetUnlikeMutation()
@@ -31,17 +31,17 @@ function Track({track}) {
 
   const handleSetLike = () => {
     if (isFavourite) {
-      setUnlike(track.id)
+      setUnlike(id)
       setFavourite(false)
     } else {
-      setLike(track.id)
+      setLike(id)
       setFavourite(true)
     }
   }
 
   const { theme } = useThemeContext()
 
-  // const handleSetTrack = (e) => {    
+  // const handleSetTrack = (e) => {
   //   e.preventDefault
   //   dispatch(
   //     setTrackPlay({
@@ -59,15 +59,15 @@ function Track({track}) {
       }}
     >
       {/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
-        {/* The <div> element has a child <button> element that allows keyboard interaction */}
-        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      <div className={styles.playlist__track} >
+      {/* The <div> element has a child <button> element that allows keyboard interaction */}
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+      <div className={styles.playlist__track}>
         <div className={styles.track__title}>
           <Trackimage />
           <Tracktext title={title} />
         </div>
         <Trackauthor author={author} />
-        <Trackalbum album={album}/>
+        <Trackalbum album={album} />
         <svg
           className={styles.track__time_svg}
           alt="time"
@@ -77,7 +77,7 @@ function Track({track}) {
             xlinkHref={`${sprite}#icon-${isFavourite ? 'like' : 'dislike'}`}
           />
         </svg>
-        <Tracktime time={time}/>
+        <Tracktime time={time} />
       </div>
     </div>
   )

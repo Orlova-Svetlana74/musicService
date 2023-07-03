@@ -1,5 +1,4 @@
 // import React from 'react'
-
 import { Routes, Route } from 'react-router-dom'
 import Login from './login/login_wrapper'
 import Registrwrapper from './registration/registr_wrapper'
@@ -11,6 +10,7 @@ import Wrapper from '../components/wrapper/wrapper'
 import Dayplaylist from './DayPlaylist/dayplaylist'
 import Playlist100hit from './Playlist100hit/playlist100hit'
 import Playindyhit from './PlayIndyhit/playindyhit'
+import MyTrack from './MyTrack/myTrack'
 // import Playlist02 from '../components/sidebar/playlist02'
 // import Playlist03 from '../components/sidebar/playlist03'
 // import Login from './login/login'
@@ -25,6 +25,7 @@ export function AppRoutes() {
       <Route path="/selection/playlist/1" element={<Dayplaylist />} />
       <Route path="/selection/playlist/2" element={<Playlist100hit />} />
       <Route path="/selection/playlist/3" element={<Playindyhit />} />
+      <Route path="/MyTrack" element={<MyTrack />} />
       {/* <Route path="/playlist01/" element={<Playlist01 />} />
       <Route path="/playlist02/" element={<Playlist02 />} />
       <Route path="/playlist03/" element={<Playlist03 />} /> */}
