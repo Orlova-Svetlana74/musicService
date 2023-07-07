@@ -10,7 +10,7 @@ import styles from './trackalbum.module.css'
 
 function Trackalbum(props) {
 
-  const {album} = props
+  const {album,onClick} = props
 
   // const dispatch = useDispatch(setTrackPlay)
   // const selector = useSelector(setUser)
@@ -51,7 +51,7 @@ function Trackalbum(props) {
         {loading ? (
           <Skeleton width={70} count={1} />
         ) : (
-          <a className={styles.track__album_link} href="http://">{album}
+          <a className={styles.track__album_link} onClick={onClick} href="http://">{album}
            
           </a>
         )}

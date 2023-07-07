@@ -1,6 +1,8 @@
 // import React from 'react'
 // import { useSelector } from 'react-redux';
 import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { setFilterInp } from '../../store/slices/setFilters'
 import Filtr from '../player/filtr'
 import Poisk from '../player/poisk'
 import Treki from '../player/treki'
@@ -10,8 +12,9 @@ import Navmenu from '../menu/navmenu'
 import Sidebar from '../sidebar/sidebar'
 import Sidebarperson from '../sidebar/sidebarperson'
 import Footer from '../footer/footer'
-import styles from './wrapper.module.css';
+import styles from './wrapper.module.css'
 import Track from '../player/track'
+import { useTrack } from '../../hooks/use-track'
 import { useGetAllTracksQuery } from '../../store/api/musicApi'
 
 // import { UserContext } from "./contexts/user";
@@ -24,17 +27,50 @@ import { useThemeContext, themes } from './theme'
 function Wrapper() {
   // const {naimen} = props
   const { theme } = useThemeContext()
+  const dispatch = useDispatch()
   const [user, setUser] = useState(null)
   // const [loading, setLoading] = useState(true)
   const isLight = theme === themes.light
   const themeClass = isLight ? styles.light : styles.dark
   const { data = [] } = useGetAllTracksQuery()
-  const tracksData = data
+  let tracksData = data
+  const { id } = useTrack()
+
+  const filterAuthor = useSelector((state) => state.setFilters.author)
+  const filterGenre = useSelector((state) => state.setFilters.genre)
+  const filterYears = useSelector((state) => state.setFilters.years)
+  switch (filterYears) {
+    case 'Сначала новые':
+      tracksData = tracksData
+        .filter((element) => element)
+        .sort(
+          ({ release_date: adate }, { release_date: bdate }) =>
+            new Date(adate).valueOf() - new Date(bdate).valueOf()
+        )
+      break
+    case 'Сначала старые':
+      tracksData = tracksData
+        .filter((element) => element)
+        .sort(
+          ({ release_date: adate }, { release_date: bdate }) =>
+            new Date(bdate).valueOf() - new Date(adate).valueOf()
+        )
+      break
+    default:
+      break
+  }
+
+  if (filterAuthor.length > 0) {
+    tracksData = tracksData.filter(({ author }) =>
+      filterAuthor.includes(author)
+    )
+  }
+  if (filterGenre.length > 0) {
+    tracksData = tracksData.filter(({ genre }) => filterGenre.includes(genre))
+  }
 
   return (
-    <div
-      className={themeClass}
-    >
+    <div className={themeClass}>
       <div
         className={styles.container}
         style={{
@@ -53,6 +89,14 @@ function Wrapper() {
                 <use xlinkHref="img/icon/sprite.svg#icon-search" />
               </svg>
               <input
+                onInput={(event) => {
+                  const target = event.target.value
+                  dispatch(
+                    setFilterInp({
+                      serchInp: target,
+                    })
+                  )
+                }}
                 className={styles.search__text}
                 type="search"
                 placeholder="Поиск"
@@ -60,15 +104,16 @@ function Wrapper() {
               />
             </div>
             <Treki naimen="Треки" />
-            <Filtr />
+            <Filtr traks={tracksData} />
             <div className={styles.centerblock__content}>
               <Poisk />
-
             </div>
-
-            {tracksData.map((item) => (
+            {tracksData.length === 0
+              ? ''
+              : tracksData.map((item) => (
                   <Track
                     key={item.id}
+                    item={item}
                     title={item.name}
                     author={item.author}
                     album={item.album}
@@ -86,7 +131,8 @@ function Wrapper() {
             <Sidebar />
           </div>
         </main>
-        <Bar />
+        
+        {id ? <Bar traks={tracksData} /> : ''}
         <Footer />
       </div>
     </div>

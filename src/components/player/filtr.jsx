@@ -20,7 +20,7 @@ function Filtr() {
   const [activeCategory, setActiveCategory] = useState(null)
   const dispatch = useDispatch()
   const { data = [] } = useGetAllTracksQuery()
-  console.log(data)
+  // console.log(data)
   const authorTrack = data.map((item) => item.author)
   const author = Array.from(new Set(authorTrack))
 

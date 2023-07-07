@@ -1,6 +1,6 @@
 import { useState } from 'react'
 // import Filtr from '../../components/player/filtr'
-import TrackFavorit from '../../components/player/track'
+import TrackFavorit from '../../components/player/trackFavorit'
 import Poisk from '../../components/player/poisk'
 import Treki from '../../components/player/treki'
 import Bar from '../../components/bar/bar'
@@ -13,7 +13,7 @@ import styles from './myTrack.module.css'
 // import { UserContext } from "./contexts/user";
 import { useThemeContext, themes } from '../../components/wrapper/theme'
 import { useGetAllTracksQuery } from '../../store/api/musicApi'
-import {useTrack} from "../../hooks/use-track"
+// import {useTrack} from "../../hooks/use-track"
 
 function MyTrack() {
     
@@ -22,7 +22,7 @@ function MyTrack() {
   const isLight = theme === themes.light
   const themeClass = isLight ? styles.light : styles.dark
   const { data = [] } = useGetAllTracksQuery()
-  const {id} = useTrack();
+  // const {id} = useTrack();
   const TRACKS = data;
 
   return (
@@ -76,9 +76,9 @@ function MyTrack() {
             {/* <Sidebar /> */}
           </div>
         </main>
-        {id ?
+        
         <Bar 
-        tracks = {TRACKS} /> : ''}
+        tracks = {TRACKS} />
         
         {/* <Footer /> */}
       </div>

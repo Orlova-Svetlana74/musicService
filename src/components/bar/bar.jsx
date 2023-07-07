@@ -8,11 +8,13 @@ import Trackplayauthor from './trackplayauthor'
 import Trackplayalbum from './trackplayalbum'
 import styles from './bar.module.css'
 import { useTrack } from '../../hooks/use-track.jsx'
-import {useGetAllTracksQuery} from "../../store/api/musicApi";
+// import {useGetAllTracksQuery} from "../../store/api/musicApi";
 
-export function Bar() {
-  const [isShuffle, setShuffle] = useState(false)
+export function Bar(props) {
   const dispatch = useDispatch()
+  
+  const [isShuffle, setShuffle] = useState(false)
+  
   const [isRepeat, setRepeat] = useState(false)
   // const [isPlaying] = useState(false)
   const [position, setPosition] = useState()
@@ -20,9 +22,9 @@ export function Bar() {
   const clickRef = useRef()
   const { id } = useTrack()
 
-  const { data } = useGetAllTracksQuery()
-  const tracks = data || []
-
+  // const { data } = useGetAllTracksQuery()
+  // const tracks = data || []
+  const {tracks} = props
   let index = tracks?.findIndex((track) => track.id === id)
   if (index < 0) {
     index = 0

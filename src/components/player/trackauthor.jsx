@@ -6,7 +6,7 @@ import styles from './trackauthor.module.css'
 import {themes, useThemeContext } from '../wrapper/theme'
 
 function Trackauthor(props) {
-  const {author} = props
+  const {author,onClick} = props
   const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
   
@@ -30,7 +30,7 @@ function Trackauthor(props) {
         {loading ? (
           <Skeleton width={200} count={1} />
         ) : (
-          <a className={styles.track__author_link} href="http://">{author}
+          <a className={styles.track__author_link} onClick={onClick} href="http://">{author}
             
           </a>
         )}
