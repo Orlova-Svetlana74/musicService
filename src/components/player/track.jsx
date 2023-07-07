@@ -15,7 +15,7 @@ import Trackalbum from './trackalbum'
 import Tracktime from './tracktime'
 import styles from './track.module.css'
 import { useThemeContext } from '../wrapper/theme'
-import { setCurrentTrack } from '../../store/slices/setTracks'
+import { setCurrentTrackID } from '../../store/slices/userSlice'
 
 function Track(props) {
   const { id: trackID, author, time, title, album, stared_user } = props
@@ -62,13 +62,8 @@ function Track(props) {
 
   const handleOnRowClick = () => {
     dispatch(
-      setCurrentTrack({
-        trackID,
-        author,
-        time,
-        title,
-        album,
-        stared_user,
+      setCurrentTrackID ({
+        id: trackID
       })
     )
   }
