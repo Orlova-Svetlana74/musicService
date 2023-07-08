@@ -4,11 +4,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   isLogin: false,
-  id: null,
+  // id: null,
   email: null,
   userName: null,
   token: null,
-  currentTrackID: null,
+  // currentTrackID: null,
+  trackId: null
 }
 
 const userSlice = createSlice({
@@ -36,12 +37,12 @@ const userSlice = createSlice({
       ...state,
       access: payload.access,
     }),
-    setCurrentTrackID: (state, { payload }) => ({
+    setTrackPlay: (state, { payload }) => ({
       ...state,
-      currentTrackID: payload.id,
+      trackId: payload.id,
     }),
   },
 })
-export const { setUser, removeUser, setRefresh, setAccess, setCurrentTrackID } = userSlice.actions
+export const { setUser, removeUser, setRefresh, setAccess, setTrackPlay } = userSlice.actions
 export default userSlice.reducer
 export const isLogin = (state) => state.user.isLogin

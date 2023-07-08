@@ -14,7 +14,8 @@ import Sidebarperson from '../sidebar/sidebarperson'
 import Footer from '../footer/footer'
 import styles from './wrapper.module.css'
 import Track from '../player/track'
-import { useTrack } from '../../hooks/use-track'
+// import { useTrack } from '../../hooks/use-track'
+import { setTrackPlay } from '../../store/slices/userSlice'
 import { useGetAllTracksQuery } from '../../store/api/musicApi'
 
 // import { UserContext } from "./contexts/user";
@@ -26,6 +27,10 @@ import { useThemeContext, themes } from './theme'
 
 function Wrapper() {
   // const {naimen} = props
+  const selector = useSelector(setTrackPlay);
+  const {trackId} = selector.payload.track;
+  // console.log (trackId)
+
   const { theme } = useThemeContext()
   const dispatch = useDispatch()
   const [user, setUser] = useState(null)
@@ -34,7 +39,7 @@ function Wrapper() {
   const themeClass = isLight ? styles.light : styles.dark
   const { data = [] } = useGetAllTracksQuery()
   let tracksData = data
-  const { id } = useTrack()
+  // const { id } = useTrack()
   console.log (tracksData)
   const filterAuthor = useSelector((state) => state.setFilters.author)
   const filterGenre = useSelector((state) => state.setFilters.genre)
@@ -120,6 +125,7 @@ function Wrapper() {
                     time={item.duration_in_seconds}
                     stared_user={item.stared_user}
                     id={item.id}
+                    file={item.track_file}
                   />
                 ))}
             {
@@ -132,7 +138,7 @@ function Wrapper() {
           </div>
         </main>
         
-        {id ? <Bar traks={tracksData} /> : ''}        
+        {trackId ? (<Bar id={trackId} />) : ''}        
         <Footer />
       </div>
     </div>
