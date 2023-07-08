@@ -35,7 +35,7 @@ function Wrapper() {
   const { data = [] } = useGetAllTracksQuery()
   let tracksData = data
   const { id } = useTrack()
-
+  console.log (tracksData)
   const filterAuthor = useSelector((state) => state.setFilters.author)
   const filterGenre = useSelector((state) => state.setFilters.genre)
   const filterYears = useSelector((state) => state.setFilters.years)
@@ -132,7 +132,7 @@ function Wrapper() {
           </div>
         </main>
         
-        {id ? <Bar traks={tracksData} /> : ''}
+        {id ? <Bar traks={tracksData} /> : ''}        
         <Footer />
       </div>
     </div>
