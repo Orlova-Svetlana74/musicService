@@ -15,7 +15,7 @@ import Footer from '../footer/footer'
 import styles from './wrapper.module.css'
 import Track from '../player/track'
 // import { useTrack } from '../../hooks/use-track'
-import { setTrackPlay } from '../../store/slices/userSlice'
+// import { setTrackPlay } from '../../store/slices/userSlice'
 import { useGetAllTracksQuery } from '../../store/api/musicApi'
 
 // import { UserContext } from "./contexts/user";
@@ -27,10 +27,11 @@ import { useThemeContext, themes } from './theme'
 
 function Wrapper() {
   // const {naimen} = props
-  const selector = useSelector(setTrackPlay);
-  const {trackId} = selector.payload.track;
-  // console.log (trackId)
+  // const selector = useSelector(setTrackPlay);
 
+  // const {trackId} = selector.payload.user;
+  // console.log (trackId)
+  const { trackId } = useSelector((state) => state.user);
   const { theme } = useThemeContext()
   const dispatch = useDispatch()
   const [user, setUser] = useState(null)

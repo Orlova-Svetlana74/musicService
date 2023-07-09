@@ -28,7 +28,7 @@ function Track(props) {
   const selector = useSelector(setUser)
   const userId = selector.payload.user.id
   console.log(stared_user)
-
+  console.log(album)
   useEffect(() => {
     setFavourite(stared_user.some((user) => user.id === userId))
   }, [props])

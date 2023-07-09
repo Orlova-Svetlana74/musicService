@@ -7,7 +7,7 @@ import {
   useGetAllTracksQuery,
 } from '../../store/api/musicApi'
 import sprite from '../../img/icon/sprite.svg'
-import { setCurrentTrack } from '../../store/slices/setTracks'
+import { setTrackPlay } from '../../store/slices/userSlice'
 import Trackplayimage from './trackplayimage'
 import Trackplayauthor from './trackplayauthor'
 import Trackplayalbum from './trackplayalbum'
@@ -34,7 +34,8 @@ export function Bar({ id }) {
   }
 
   useEffect(() => {
-    dispatch(setCurrentTrack({ id: tracks[index === -1 ? 0 : index].id }))
+    dispatch(setTrackPlay({ id: tracks[index === -1 ? 0 : index].id }))
+
     console.log(tracks[index].id)
   }, [id])
 
@@ -47,7 +48,7 @@ export function Bar({ id }) {
     index = index > tracks.length - 1 ? 0 : tracks[index].id
 
     dispatch(
-      setCurrentTrack({
+      setTrackPlay({
         id: index,
       })
     )
@@ -81,7 +82,7 @@ export function Bar({ id }) {
 
     index = index < 0 ? 0 : tracks[index].id
     dispatch(
-      setCurrentTrack({
+      setTrackPlay({
         id: index,
       })
     )

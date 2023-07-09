@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 export function useTrack() {
     /* eslint camelcase: ["error", {ignoreDestructuring: true}] */
-    const {id, name, author, duration_in_second, album, track_file} = useSelector(state => state.currentTrack.track)
+    const {id, name, author, duration_in_second, album, track_file} = useSelector(state => state.user)
 
     /* eslint camelcase: ["error", {ignoreDestructuring: true}] */
     return {    
