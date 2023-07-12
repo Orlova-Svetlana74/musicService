@@ -1,15 +1,6 @@
-.track__author {
-    width: 321px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-  }
-
-  .track__author_link {
-    font-style: normal;
+ .track__author_link
+  { 
+  font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -18,10 +9,19 @@
     color: #FFFFFF;
     color: var(--text-color); 
   }
-  .light.track__title_link {
+
+.light.track__title_link {
     --text-color: #000;
   }
 
-  .dark.track__title_link {
+
+.dark.track__title_link {
     --text-color: #fff;
   }
+
+  .track__author {
+    /* background-color: rgb(255, 255, 255);
+    color: rgb(40, 44, 52); */
+    display: flex;
+    justify-content: flex-start;    
+    width: 321px;}

@@ -19,6 +19,7 @@ function Trackauthor(props) {
   const isLight = theme === themes.light
   const themeClass = isLight ? styles.light : styles.dark
   return (
+    <div className={styles.track__author}>
     <div
       className={themeClass}
       style={{
@@ -36,6 +37,9 @@ function Trackauthor(props) {
         )}
       </SkeletonTheme>
     </div>
+    
+    </div>
   )
+   
 }
 export default Trackauthor

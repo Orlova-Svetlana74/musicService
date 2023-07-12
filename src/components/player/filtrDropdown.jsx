@@ -40,23 +40,27 @@ function FiltrDropdown({ data, category }) {
     }
   }
   return (
+    
     <div className={styles.dropdown}>
       {/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
       {/* The <div> element has a child <button> element that allows keyboard interaction */}
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      {data.map((item) => (
+      {/* eslint-disable no-unused-vars */}
+      {data.map((item, i) => (
+        
         /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */
         <div
           className={styles.dropdown_item}
-          // key={i}
-          onClick={() => handleFilterClick(item)}
-        >
-          {' '}
-          {item}{' '}
-        </div>
+          key={item.i}
+          onClick={() => handleFilterClick(item, i)}
+        >          
+          {item}
+        </div>        
       ))}
-    </div>
-  )
-}
+    
+    </div>    
+    );
+};
+
 
 export default FiltrDropdown

@@ -63,7 +63,7 @@
     padding: 0 27px 0 31px;
   }
 
-  .player_btn_prev {
+  .player_btn_play {
     margin-right: 23px;
   }
 
@@ -219,7 +219,7 @@
     width: 109px;
   }
 
-  .volume_progress_line {
+  .volume__progress_line {
     width: 109px;
   }
 
@@ -242,4 +242,61 @@
   background-color: #580EA2;
   border-radius: 30px;
 
+}
+
+.stopsvg {
+  width: 22px;
+  height: 20px;
+  fill: #D9D9D9;
+}
+.playsvg {
+  width: 22px;
+  height: 20px;
+  fill: #D9D9D9;
+}
+
+.repeatsvg {
+  width: 18px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.shufflesvg {
+  width: 19px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.likedis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 26%;
+}
+
+.like, .dislike {
+  padding: 5px;
+}
+
+.likesvg {
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.dislikesvg {
+  width: 14.34px;
+  height: 13px;
+  fill: transparent;
+  stroke: #696969;
 }

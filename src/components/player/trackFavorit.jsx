@@ -10,7 +10,7 @@ function TrackFavorit() {
   const starredList = data.filter((item) =>
     item.stared_user.find((user) => user.id === userId)
   )
-console.log (localStorage)
+console.log (starredList)
   const playlistItems = starredList.map((item) => (
     <Track key={item.id} track={item} />
   ))

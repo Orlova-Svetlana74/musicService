@@ -29,9 +29,13 @@ function Track(props) {
   const userId = selector.payload.user.id
   console.log(stared_user)
   console.log(album)
+
   useEffect(() => {
-    setFavourite(stared_user.some((user) => user.id === userId))
-  }, [props])
+    if (stared_user) {
+     setFavourite(stared_user.some((user) => {console.log (user.id, userId) 
+      return user.id === userId}))
+    }    
+  },[stared_user])
 
   // const handleFavorite = () => {
   //   if (isFavourite) {

@@ -1,15 +1,21 @@
-.wrapper {
-    width: 100%;
+/* .wrapper { */
+    /* width: 100%;
     min-height: 100%;
-    overflow: hidden;
+    overflow: hidden; */
     /* background-color: #383838; */
-  }
+  /* } */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
   .container {
     max-width: 1920px;
     height: 100vh;
     margin: 0 auto;
-    position: relative;
-    width: 100%;
+    position: relative;   
     min-height: 100%;
     overflow: hidden;
     background-color: var(--background-color);
@@ -23,18 +29,22 @@
   }
 
   .main {
-    -webkit-box-flex: 1;
+    /* -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
     display: -webkit-box;
-    display: -ms-flexbox;
+    display: -ms-flexbox; */
     display: flex;
-    -ms-flex-wrap: wrap;
+    flex: 1 1 auto;
+    max-width: 100%;
+    height: auto;
+    /* -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+        -ms-flex-pack: justify; */
+            /* justify-content: space-between; */
   }
+
   .main__nav {
     width: 244px;
     background-color: var(--background-color);
@@ -83,7 +93,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #FFFFFF;
+    color: #150101;
   }
 
   .centerblock__content {
@@ -95,7 +105,7 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .content__playlist {
+  /* .content__playlist {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -104,15 +114,15 @@
         -ms-flex-direction: column;
             flex-direction: column;
     overflow-y: auto;
-  }
+  } */
 
-  .playlist__item {
+  /* .playlist__item {
     width: 100%;
     display: block;
     margin-bottom: 12px;
-  }
+  } */
 
-  .playlist__track {
+  /* .playlist__track {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -126,9 +136,9 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
+  } */
 
-  .track__title {
+  /* .track__title {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -140,9 +150,9 @@
         -ms-flex-align: center;
             align-items: center;
     width: 447px;
-  }
+  } */
 
-  .track_title_image {
+  /* .track_title_image {
     width: 51px;
     height: 51px;
     padding: 16px;
@@ -157,32 +167,32 @@
         -ms-flex-pack: center;
             justify-content: center;
     margin-right: 17px;
-  }
+  } */
 
-  .track_title_svg {
+  /* .track_title_svg {
     width: 18px;
     height: 17px;
     fill: transparent;
     stroke: #4E4E4E;
-  }
+  } */
 
-  .track_title_link {
+  /* .track_title_link {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
-  }
+  } */
 
-  .track_title_span {
+  /* .track_title_span {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #4E4E4E;
-  }
+  } */
 
-  .track_author {
+  /* .track_author {
     width: 321px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -190,43 +200,43 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-  }
+  } */
 
-  .track_author_link {
+  /* .track_author_link {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
     text-align: left;
-  }
+  } */
 
-  .track_album {
+  /* .track_album {
     width: 245px;
-  }
-  .track_album_link {
+  } */
+  /* .track_album_link {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #696969;
-  }
-  .track_time_svg {
+  } */
+  /* .track_time_svg {
     width: 14px;
     height: 12px;
     margin-right: 17px;
     fill: transparent;
     stroke: #696969;
-  }
+  } */
 
-  .track_time_text {
+  /* .track_time_text {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     text-align: right;
     color: #696969;
-  }
+  } */
 
   .main_sidebar {
     max-width: 418px;

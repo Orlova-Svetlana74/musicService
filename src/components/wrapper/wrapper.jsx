@@ -14,6 +14,7 @@ import Sidebarperson from '../sidebar/sidebarperson'
 import Footer from '../footer/footer'
 import styles from './wrapper.module.css'
 import Track from '../player/track'
+import sprite from '../../img/icon/sprite.svg'
 // import { useTrack } from '../../hooks/use-track'
 // import { setTrackPlay } from '../../store/slices/userSlice'
 import { useGetAllTracksQuery } from '../../store/api/musicApi'
@@ -92,7 +93,7 @@ function Wrapper() {
           <div className={styles.main__centerblock}>
             <div className={styles.centerblock__search}>
               <svg className={styles.search__svg}>
-                <use xlinkHref="img/icon/sprite.svg#icon-search" />
+                <use xlinkHref={`${sprite}#icon-search`} />
               </svg>
               <input
                 onInput={(event) => {

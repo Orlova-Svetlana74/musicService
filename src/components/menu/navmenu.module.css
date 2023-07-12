@@ -1,5 +1,5 @@
 .main__nav {
-    width: 244px;
+    /* width: 244px; */
     background-color: var(--background-color);
     /* background-color: #181818; */
     padding: 20px 0 20px 36px;
@@ -8,7 +8,7 @@
   .nav__menu {
     display: block;
     visibility: visible;
-    transform: translateX(-130%);
+    transform: translateX(-135%);
     transition: all 0.2s;  
   }
   .active {
