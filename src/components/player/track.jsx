@@ -87,6 +87,7 @@ function Track(props) {
   //   )
   // }
   return (
+  <div className={styles.scrollbar}>
     <div
       className={styles.playlist__item}
       style={{
@@ -115,6 +116,7 @@ function Track(props) {
         </svg>
         <Tracktime time={time} />
       </div>
+    </div>
     </div>
   )
 }

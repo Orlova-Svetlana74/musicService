@@ -7,7 +7,7 @@ function TrackFavorit() {
 
   const userId = Number(localStorage.getItem('user_id'))
 
-  const starredList = data.filter((item) =>
+  const starredList = data.filter(item => 
     item.stared_user.find((user) => user.id === userId)
   )
 console.log (starredList)

@@ -53,7 +53,6 @@ export function Bar({ id }) {
       })
     )
   }
-
   const [audio, state, controls] = useAudio({
     src: playingTrack?.track_file,
     autoPlay: true,

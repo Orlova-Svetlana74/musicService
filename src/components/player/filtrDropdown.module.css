@@ -20,8 +20,6 @@
   margin-right: 15px;
 } */
 
-
-
 .filter_button {
   font-style: normal;
   font-weight: 400;
@@ -36,7 +34,6 @@
   background-color: var(--back-color);
   border: var(--border-color);
 }
-
 
 /* .light.filter_button {
   --text-color: #fff;
