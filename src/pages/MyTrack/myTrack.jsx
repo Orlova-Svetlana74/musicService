@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 // import Filtr from '../../components/player/filtr'
 import TrackFavorit from '../../components/player/trackFavorit'
 import Poisk from '../../components/player/poisk'
@@ -12,18 +13,19 @@ import Sidebarperson from '../../components/sidebar/sidebarperson'
 import styles from './myTrack.module.css'
 // import { UserContext } from "./contexts/user";
 import { useThemeContext, themes } from '../../components/wrapper/theme'
-import { useGetAllTracksQuery } from '../../store/api/musicApi'
+// import { useGetAllTracksQuery } from '../../store/api/musicApi'
 // import {useTrack} from "../../hooks/use-track"
 
 function MyTrack() {
-    
+   
   const { theme } = useThemeContext()
   const [user, setUser] = useState(null)
   const isLight = theme === themes.light
   const themeClass = isLight ? styles.light : styles.dark
-  const { data = [] } = useGetAllTracksQuery()
+  // const { data = [] } = useGetAllTracksQuery()
   // const {id} = useTrack();
-  const TRACKS = data;
+  const { trackId } = useSelector((state) => state.user);
+  // const TRACKS = data;
 
   return (
     <div
@@ -77,8 +79,7 @@ function MyTrack() {
           </div>
         </main>
         
-        <Bar 
-        tracks = {TRACKS} />
+        {trackId ? (<Bar id={trackId} />) : ''}
         
         {/* <Footer /> */}
       </div>
