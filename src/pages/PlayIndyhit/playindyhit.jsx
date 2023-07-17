@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 // import Filtr from '../../components/player/filtr'
 import Track from '../../components/player/track'
 import Poisk from '../../components/player/poisk'
@@ -21,6 +22,7 @@ function Playlist100hit() {
   const themeClass = isLight ? styles.light : styles.dark
   const { data = [] } = useGetAllTracksQuery()
   const tracksData = data
+  const { trackId } = useSelector((state) => state.user);
 
   return (
     <div
@@ -59,6 +61,7 @@ function Playlist100hit() {
             {/* <Filtr /> */}
             <div className={styles.centerblock__content}>
               <Poisk />
+              <div className={styles.scrollbar}>
               <div className={styles.content__playlist}>
                 {tracksData.map((item) => (
                   <Track
@@ -72,6 +75,7 @@ function Playlist100hit() {
                   />
                 ))}
               </div>
+              </div>
             </div>
             {
               // trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
@@ -82,7 +86,7 @@ function Playlist100hit() {
             {/* <Sidebar /> */}
           </div>
         </main>
-        <Bar />
+        {trackId ? (<Bar id={trackId} />) : ''}
         {/* <Footer /> */}
       </div>
     </div>

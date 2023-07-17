@@ -32,9 +32,10 @@ function Navmenu() {
         className={`${styles.nav__menu}${menuActive ? styles.active : ''}`}
         onClick={() => setMenuActive(false)}
       >
+        
         <ul className={styles.menu__list}>
           {items.map((item) => (
-            <li className={styles.menu__item} key={item.id}>
+            <li className={styles.menu__item}  key={item.id}>
               {/* <a href=" " className={styles.menu__link}> */}
               <Link to={item.to}>{item.value}
               </Link>
@@ -44,7 +45,8 @@ function Navmenu() {
           {/*  */}
           <ThemeSwitcher />
         </ul>
-      </div>
+        </div>
+     
     </nav>
   )
 }

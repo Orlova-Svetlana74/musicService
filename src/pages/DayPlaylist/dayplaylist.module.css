@@ -232,3 +232,28 @@
     max-width: 418px;
     padding: 20px 90px 20px 78px;
   }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 12px;
+  } 
+  
+  .scrollbar::-webkit-scrollbar-track {
+    background-color: #1a1313;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #6b6b6b;
+    border-radius: 10px;       /* округлось бегунка */
+    box-shadow: inset 1px 1px 10px #f3faf7;    
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #253861;
+}
+  
+  .scrollbar {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    max-height: 400px; 
+    /* scrollbar-color: #6b6b6b #313131;    */
+  }  

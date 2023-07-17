@@ -1,5 +1,6 @@
 import { useState } from 'react'
 // import Filtr from '../../components/player/filtr'
+import { useSelector } from 'react-redux'
 import Track from '../../components/player/track'
 import Poisk from '../../components/player/poisk'
 import Treki from '../../components/player/treki'
@@ -21,6 +22,7 @@ function Dayplaylist() {
   const themeClass = isLight ? styles.light : styles.dark
   const { data = [] } = useGetAllTracksQuery()
   const tracksData = data
+  const { trackId } = useSelector((state) => state.user);
 
   return (
     <div
@@ -59,6 +61,7 @@ function Dayplaylist() {
             {/* <Filtr /> */}
             <div className={styles.centerblock__content}>
               <Poisk />
+              <div className={styles.scrollbar}>
               <div className={styles.content__playlist}>
                 {tracksData.map((item) => (
                   <Track
@@ -72,18 +75,17 @@ function Dayplaylist() {
                   />
                 ))}
               </div>
+              </div>
             </div>
             {
               // trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
             }
           </div>
           <div className={styles.main_sidebar}>
-            <Sidebarperson />
-            {/* <Sidebar /> */}
+            <Sidebarperson />            
           </div>
         </main>
-        <Bar />
-        {/* <Footer /> */}
+        {trackId ? (<Bar id={trackId} />) : ''}       
       </div>
     </div>
   )

@@ -60,28 +60,21 @@ function MyTrack() {
                 name="search"
               />
             </div>
-            <Treki naimen="Мои треки" />
-            {/* <Filtr /> */}
+            <Treki naimen="Мои треки" />           
             <div className={styles.centerblock__content}>
               <Poisk />
               <div className={styles.content__playlist}>                
                   <TrackFavorit                    
                   />               
               </div>
-            </div>
-            {
-              // trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
-            }
+            </div>            
           </div>
           <div className={styles.main_sidebar}>
-            <Sidebarperson />
-            {/* <Sidebar /> */}
+            <Sidebarperson />            
           </div>
-        </main>
+        </main>        
+        {trackId ? (<Bar id={trackId} />) : ''}      
         
-        {trackId ? (<Bar id={trackId} />) : ''}
-        
-        {/* <Footer /> */}
       </div>
     </div>
   )
