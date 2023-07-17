@@ -62,8 +62,7 @@ function Track(props) {
       setLike(props.id)
       setFavourite(true)
     }
-  }
-  
+  } 
 
   const handleSetTrack  = () => {
     // e.preventDefault;    
@@ -77,19 +76,10 @@ function Track(props) {
 
   const { theme } = useThemeContext()
 
-  // const handleSetTrack = (e) => {
-  //   e.preventDefault
-  //   dispatch(
-  //     setTrackPlay({
-  //       id,
-  //       isFavourite,
-  //     })
-  //   )
-  // }
   return (
-  <div className={styles.scrollbar}>
+  
     <div
-      className={styles.playlist__item}
+      className={styles.playlist__item }
       style={{
         backgroundColor: theme.background,
         color: theme.color,
@@ -117,7 +107,7 @@ function Track(props) {
         <Tracktime time={time} />
       </div>
     </div>
-    </div>
+    
   )
 }
 export default Track

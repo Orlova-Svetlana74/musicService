@@ -1,29 +1,10 @@
 .playlist__item {
   width: 98%;
   display: block;
-  margin-bottom: 12px; 
-  
+  margin-bottom: 12px;  
   }
 
-  .scrollbar::-webkit-scrollbar {
-    width: 12px;
-  } 
   
-  .scrollbar::-webkit-scrollbar-track {
-    background-color: #120101;
-  }
-  
-  .scrollbar::-webkit-scrollbar-thumb {
-    background-color: #6b6b6b;
-    border-radius: 20px;       /* округлось бегунка */    
-  }
-  
-  .scrollbar {
-    overflow-y: scroll;
-    scrollbar-width: none; 
-    scrollbar-color: #6b6b6b #313131; 
-    overflow-y: scroll;
-  }  
 
   .playlist__track {
     display: -webkit-box;

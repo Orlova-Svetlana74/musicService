@@ -16,6 +16,9 @@ import styles from './bar.module.css'
 // import {useGetAllTracksQuery} from "../../store/api/musicApi";
 
 export function Bar({ id }) {
+  if (!id) {
+    return null
+  }
   const { data = [] } = useGetAllTracksQuery()
   const tracks = data
 

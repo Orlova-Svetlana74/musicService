@@ -17,10 +17,11 @@ function Navmenu() {
   const [menuActive, setMenuActive] = useState(false)
   // const isLight = theme === themes.light
   // const themeClass = isLight ? styles.light : styles.dark
+
   return (
     <nav
       className=
-      {styles.main__nav}
+      {styles.main__nav} 
       // style={{
       //   backgroundColor: theme.background,
       //   color: theme.color,

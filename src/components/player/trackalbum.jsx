@@ -5,36 +5,15 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 // import { useSetLikeMutation, useSetUnlikeMutation } from '../../store/api/musicApi';
 import 'react-loading-skeleton/dist/skeleton.css'
 import styles from './trackalbum.module.css'
+import {themes, useThemeContext } from '../wrapper/theme'
 // import { setTrackPlay } from '../../store/slices/setTracks'
 // import { setUser } from '../../store/slices/userSlice'
 
 function Trackalbum(props) {
 
-  const {album,onClick} = props
+  const {album,onClick} = props  
 
-  // const dispatch = useDispatch(setTrackPlay)
-  // const selector = useSelector(setUser)
-  // const [setLike] = useSetLikeMutation()
-  // const [setUnlike] = useSetUnlikeMutation()
-  // const userId = selector.payload.user.id
-
-//   useEffect(() => {
-//     setFavourite(staredUser.some((user) => user.id === userId))
-// }, [props])
-
-// const [isFavourite, setFavourite] = useState('')
-
-// const handleSetTrack = (e) => {
-//   e.preventDefault;
-//   dispatch(
-//       setTrackPlay({
-//           id,
-//           isFavourite
-//       })
-//   );
-// };
-
-  // const { theme } = useThemeContext()
+  const { theme } = useThemeContext()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -42,8 +21,10 @@ function Trackalbum(props) {
     }, 3000)
     return () => clearTimeout(timer)
   }, [])
-
+  const isLight = theme === themes.light
+  const themeClass = isLight ? styles.light : styles.dark
   return (
+    <div className={themeClass}>
     <div
       className={styles.track__album}     
     >
@@ -56,6 +37,7 @@ function Trackalbum(props) {
           </a>
         )}
       </SkeletonTheme>
+    </div>
     </div>
   )
 }

@@ -115,6 +115,7 @@ function Wrapper() {
             <div className={styles.centerblock__content}>
               <Poisk />
             </div>
+            <div className={styles.scrollbar}>
             {tracksData.length === 0
               ? ''
               : tracksData.map((item) => (
@@ -133,6 +134,7 @@ function Wrapper() {
             {
               // trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
             }
+            </div>
           </div>
           <div className={styles.main_sidebar}>
             <Sidebarperson />

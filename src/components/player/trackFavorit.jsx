@@ -12,7 +12,14 @@ function TrackFavorit() {
   )
 console.log (starredList)
   const playlistItems = starredList.map((item) => (
-    <Track key={item.id} track={item} />
+    <Track key={item.id} item={item}
+    title={item.name}
+    author={item.author}
+    album={item.album}
+    time={item.duration_in_seconds}
+    stared_user={item.stared_user}
+    id={item.id}
+    file={item.track_file} />
   ))
   return (
     <div>

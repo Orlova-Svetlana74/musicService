@@ -61,19 +61,17 @@
         -ms-flex-direction: row;
             flex-direction: row;
     padding: 0 27px 0 31px;
-  }
-
-  .player_btn_play {
-    margin-right: 23px;
-  }
+    align-items: center;
+  } 
 
   .player_btn_prev_svg {
     width: 15px;
     height: 14px;
+    margin-right: 10px;
   }
 
   .player_btn_play {
-    margin-right: 23px;
+    margin-right: 10px;
   }
   .player_btn_play_svg {
     width: 22px;

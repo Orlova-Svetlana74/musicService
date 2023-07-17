@@ -8,7 +8,7 @@
   .nav__menu {
     display: block;
     visibility: visible;
-    transform: translateX(-135%);
+    transform: translateX(-180%);
     transition: all 0.2s;  
   }
   .active {
